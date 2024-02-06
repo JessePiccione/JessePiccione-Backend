@@ -1,0 +1,21 @@
+<div class='row'>
+    {% for e in objects %}
+    <div class='col-12'>
+        <div class='card primary-color bg-gradient text-white m-4'>
+            <h1 class='card-title m-3'>
+                {{e.degree_type}}
+            </h1>
+            <div class='card-body m-1'>
+                <ul class = 'list-group'>
+                    <li class = 'list-group-item list-group-item-action'>
+                        <h4>{{e.school_name}} - {{e.location}}</h4>
+                    </li>
+                    <li class='list-group-item list-group-item-action'>
+                        <h5>{{e.start_date}} - {{e.end_date}}</h5>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>

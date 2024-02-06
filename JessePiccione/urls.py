@@ -23,6 +23,7 @@ urlpatterns = [
     path('', include('Resume.urls')),
     path('education/', include('Education.urls')),
     path('projects/', include('Projects.urls')),
-    path('skills/', include('Skills.urls')),
+    path('skill/', include('Skills.urls')),
     path('workexperience/', include('WorkExperience.urls')),
+    path('awards/', include('Awards.urls')),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

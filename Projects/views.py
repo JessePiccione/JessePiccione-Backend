@@ -7,4 +7,5 @@ from .models import Project
 class project(View):
     def get(self, request):
         objects = Project.objects.all()
-        return HttpResponse(objects)
+        context={'objects': objects }
+        return render(request, 'project.html', context, status=200)

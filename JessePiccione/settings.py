@@ -30,6 +30,8 @@ ALLOWED_HOSTS = ["*"]
 # Application definition
 
 INSTALLED_APPS = [
+    'Message.apps.MessageConfig',
+    'Awards.apps.AwardsConfig',
     'Projects.apps.ProjectsConfig',
     'Skills.apps.SkillsConfig',
     'Education.apps.EducationConfig',

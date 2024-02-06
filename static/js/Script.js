@@ -1,24 +1,22 @@
-document.addEventListener('DOMContentLoaded', loadHomeView);
-
-async function loadHomeView(event){
-    event.preventDefault();
-    const response =  await fetch('/home');
-    const main = document.getElementById('mainContentContainer').innerHTML = await response.text();
+document.addEventListener('DOMContentLoaded', loadDOM);
+function get(name){
+    return document.querySelector(name);
 }
-//TODO add in work experience view
-async function loadExperienceView(event){
-    event.preventDefault();
+function getAll(name){
+    return document.querySelectorAll(name);
 }
-//TODO add in Education function 
-async function loadEducationView(event){
-    event.preventDefault();
+async function loadDOM(event){
+    loadViewName(event,'home');
+    getAll('.nav-link').forEach((element)=>{
+        element.addEventListener("click",function(event){loadViewName(event,element.id)})
+    })
 }
-//TODO add in Projects view
-async function loadProjectsView(event){
-    event.preventDefault();
+async function loadViewName(event, name){
+    const req = await fetch("/"+name);
+    const main = get("#mainContentContainer").innerHTML = await req.text()
+    getAll('.active').forEach((element)=>{
+        element.classList.remove('active');
+    })
+    get('#'+name).classList.add('active')
+    event.preventDefault()
 }
-//TODO add in SKills view
-async function loadSkillsView(event){
-    event.preventDefault();
-}
-
