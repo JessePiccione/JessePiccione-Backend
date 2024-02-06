@@ -1,10 +1,10 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-from .models import Education
 from django.views import View
+from .models import Award
 # Create your views here.
-class education(View):
+class AwardHandler(View):
     def get(self, request):
-        objects = Education.objects.all()
+        objects = Award.objects.all()
         context = {'objects':objects}
-        return render(request,'education.html', context)
+        return render(request, 'awards.html', context)

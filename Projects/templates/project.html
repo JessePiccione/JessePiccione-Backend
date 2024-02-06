@@ -1,0 +1,32 @@
+<div class='row'>
+    {% for p in objects %}
+        <div class='col-12  m-5'>
+            <div class='card primary-color bg-gradient text-light'>
+                <h1 class='card-title m-3'>
+                    {{p.name}}
+                </h1>
+                <div class='card-body'>
+                    <ul class='list-group'>
+                        <li class='list-group-item list-group-item-action'>
+                            <h5 class='card-text'>
+                                {{p.sponser}}
+                            </h5>
+                            
+                        </li>
+                        <li class='list-group-item list-group-item-action'>
+                            <h5 class='card-text'>
+                                {{p.start_date}} - {{p.end_date}}
+                            </h5>
+                        </li>
+                        <li class='list-group-item list-group-item-action'>
+                            <h6 class='card-text'>
+                                {{p.contribution}}
+                            </h5>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+    <div class=''>
+</div>

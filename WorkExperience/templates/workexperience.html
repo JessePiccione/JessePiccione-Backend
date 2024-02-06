@@ -1,0 +1,23 @@
+<div class='row'>
+    {% for obj in objects %}
+        <div class='col-12'>
+            <div class='card primary-color bg-gradient text-light m-5'>
+                <h2 class='card-title m-3'>{{obj.title_held}}</h2>
+                <div class='card-body'>
+                    <hr class ='mt-0' />
+                    <ul class = 'list-group'>
+                        <li class='list-group-item list-group-item-action'>
+                            <b>{{obj.company_name}}</b> - {{obj.location}}
+                        </li>
+                        <li class='list-group-item list-group-item-action'>
+                            {{obj.start_date}} - {{obj.end_date}}
+                        </li>
+                        <li class='list-group-item list-group-item-action'>
+                            {{obj.description}}
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+<div>

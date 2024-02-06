@@ -1,0 +1,20 @@
+<div class='row'>
+    {% for t in types %}
+        <div class='col-12 col-lg-4 m-0'>
+            <div class = 'card primary-color bg-gradient text-white my-5'>
+                <h4 class='card-title text-center m-3'>
+                    {{t.category_name}}
+                </h4>
+                <ul class='list-group m-3 mt-0'>
+                    {% for s in skills %}
+                        {% if s.category.category_name == t.category_name %}
+                            <li class='list-group-item list-group-item-action'>
+                                <h6>{{s.name}} - {{s.rating}} out of 5</h6>
+                            </li>
+                        {% endif %}                        
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    {% endfor %}
+</div>
