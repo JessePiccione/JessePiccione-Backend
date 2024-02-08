@@ -1,19 +1,18 @@
 <div class='row'>
     {% for obj in objects %}
         <div class='col-12'>
-            <div class='card primary-color bg-gradient text-light m-5'>
-                <h2 class='card-title m-3'>{{obj.title_held}}</h2>
-                <div class='card-body'>
-                    <hr class ='mt-0' />
+            <div class='card primary-color bg-gradient text-light my-3 mx-0'>
+                <h2 class='card-title m-3 mb-0 p-3 text-center'>{{obj.title_held}}</h2>
+                <div class='card-body m-3 p-3'>
                     <ul class = 'list-group'>
                         <li class='list-group-item list-group-item-action'>
-                            <b>{{obj.company_name}}</b> - {{obj.location}}
+                            <h5>{{obj.company_name}} - {{obj.location}}</h5>
                         </li>
                         <li class='list-group-item list-group-item-action'>
-                            {{obj.start_date}} - {{obj.end_date}}
+                            <h6>{{obj.start_date}} - {{obj.end_date}}</h6>
                         </li>
                         <li class='list-group-item list-group-item-action'>
-                            {{obj.description}}
+                            <i>{{obj.description}}</i>
                         </li>
                     </ul>
                 </div>

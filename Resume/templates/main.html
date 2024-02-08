@@ -2,18 +2,34 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Welcome! This is my Resume Home Page!</title>
+        <title>Welcome! to Jesse's Resume App!</title>
+        <link rel='icon' type="image/x-icon" href="{% static '/img/favicon.ico' %}">
     </head>
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-    <link href="{% static 'css\Style.css'%}" rel='stylesheet' >
-    <body class='bg-black bg-gradient' data-bs-theme='dark'>
+    <link href="{% static 'css\Style.css' %}" rel='stylesheet' >
+    <body class='bg-light bg-gradient text-color-black' >
+        <div class='offcanvas offcanvas-bottom bg-light' style='min-height:700px' tabindex='-1' id='offCanvasForm' aria-labeledby="offCanvasFormLabel" >
+            <div class='offcanvas-header primary-color bg-gradient m-2 mb-0 p-3'>
+                <h3 class='offcanvas-title text-white' id='offCanvasFormLabel'>Leave a Message</h3>
+                <button type='button' class='btn-close btn-close-white' data-bs-dismiss='offcanvas' aria-label-"Close" data-bs-theme='light'></button>
+            </div>
+            <div class='offcanvas-body'>
+                <form class='row text-black p-4' method='POST' action='/message/' data-bs-theme='light'>
+                    {% csrf_token %}
+                    {{ f.as_table }}
+                    <div class='col m-0 p-0'>
+                        <button type='submit' class=' text-white btn btn-gradient primary-color my-3 p-0'><h5 class='m-3'>Send Message</h5></button>
+                    </div>
+                </form>
+            </div>
+        </div>
         <div class='container-fluid bg-black bg-gradient m-0 p-0 z-3'>
-            <div class='row p-3'>
+            <div class='row p-3 m-0'>
                 <div class = 'col-6 col-sm-3 col-md-3 col-xl-1 m-0'>
-                    <img class = 'img-fluid rounded-profile m-5' src="{% static 'img\resume_site_profile.jpg' %}"></img>
+                    <img class = 'img-fluid rounded-profile m-3' src="{% static 'img\resume_site_profile.jpg' %}"></img>
                 </div>
-                <div class = 'col-6 col-sm-7 col-md-7 col-xl-10 align-self-center text-white m-5' >
+                <div class = 'col-6 col-sm-7 col-md-7 col-xl-10 align-self-center text-white m-3' >
                     <h1>
                         Jesse Piccione
                     </h1>
@@ -24,14 +40,14 @@
             </div>
         </div>    
         <div class='container-fluid sticky-top m-0 p-0'>
-            <nav class='navbar navbar-expand-lg primary-color bg-gradient' data-bs-theme='dark'>
+            <nav class='navbar navbar-expand-lg primary-color bg-gradient p-1' data-bs-theme='dark'>
                 <div class='container-fluid'>
-                    <a class='navbar-brand mx-3'><h1>JessePiccione.com</h1></a>
+                    <a class='navbar-brand mx-3'><h2>JessePiccione.info</h2></a>
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                     </button>
                     <div class='collapse navbar-collapse' id ='navbarSupportedContent'>
-                        <ul class="navbar-nav me-auto m-3 align-self-bottom">
+                        <ul class="navbar-nav me-auto p-3 align-self-bottom">
                             <li class='nav-item'>
                                 <a class='nav-link active' id='home' href='#'><h5>Home</h5></a>
                             </li>
@@ -55,12 +71,32 @@
                 </div>
             </nav>
         </div> 
-        <div id ="mainContentContainer" class='container'  style='min-height:1800px' >
-        </div>
-        <div class="container">
-            <div class='row'>
-                <div class='col-12 m-5'>
-                    <br>
+        <div class='container-fluid m-0 p-0' style='min-height:1700px;'>
+            <div id ="mainContentContainer" class='container' >
+            </div>
+            <div class="container">
+                <div class='row'>
+                    <div class='col-12'>
+                        <div class='card text-light primary-color bg-gradient my-4'>
+                            <div class='card-body'>
+                                <h2 class='card-title text-center'>
+                                    Leave a Message
+                                </h2>
+                                <hr />
+                                <h4 class='card-text text-center'>
+                                    Click the button below to open the Message Form.
+                                </h4>
+                                <div class='text-center my-5'>
+                                    <button class='btn btn-light btn-gradient text-center' type='button' data-bs-toggle='offcanvas' data-bs-target = '#offCanvasForm' aria-controls='offCanvasBottom'>
+                                        <h4 class='m-2'>Open!</h4>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class='col-12' style='min-height:150px;'>
+                        
+                    </div>
                 </div>
             </div>
         </div>
@@ -71,7 +107,7 @@
                     <br />
                     Phone: 732-908-0037
                 </div>
-                <div class='col-6 text-end'>
+                <div class='col-6 text-end m-0 px-4'>
                     <a class='text-white text-decoration-none' href='https://www.linkedin.com/in/jesse-piccione'>
                         LinkedIn <i class="fa-brands fa-linkedin"></i>
                     </a>
