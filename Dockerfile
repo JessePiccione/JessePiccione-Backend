@@ -13,4 +13,4 @@ WORKDIR /JessePiccione
 COPY requirements.txt /JessePiccione/
 RUN pip install --user -r requirements.txt
 COPY . /JessePiccione/
-CMD python manage.py runserver 0.0.0.0:8000
+CMD python manage.py runserver 0.0.0.0:80

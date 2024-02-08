@@ -7,4 +7,4 @@ class AwardHandler(View):
     def get(self, request):
         objects = Award.objects.all()
         context = {'objects':objects}
-        return render(request, 'awards.html', context)
+        return render(request, 'Awards.html', context)
