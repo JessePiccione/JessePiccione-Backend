@@ -1,2 +1,0 @@
-this is the gcloud script to submit a new build
-gcloud builds submit --tag   gcr.io/[your-project]/[image-tag-name] 
