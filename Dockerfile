@@ -13,4 +13,4 @@ WORKDIR /JessePiccione
 COPY requirements.txt /JessePiccione/
 RUN pip install --user -r requirements.txt
 COPY . /JessePiccione/
-CMD python manage.py runserver 0.0.0.0:80 --insecure
+CMD python manage.py runserver_plus --key-file private.key --cert-file certificate.crt 0.0.0.0:443 --insecure
