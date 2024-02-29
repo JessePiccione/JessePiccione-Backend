@@ -3,7 +3,7 @@ from django.views import View
 from .models import Skill, SkillCategory
 # Create your views here.
 class skillsHandler(View):
-    def get(self, request):
+    def post(self, request):
         skills = Skill.objects.all()
         categories = SkillCategory.objects.all()
         context = {
