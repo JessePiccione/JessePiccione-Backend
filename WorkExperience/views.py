@@ -4,7 +4,7 @@ from .models import WorkExperience
 # Create your views here.
 
 class workexperience(View):
-    def get(self, request):
+    def post(self, request):
         objects = WorkExperience.objects.all()
         context = {
             'objects':objects

@@ -12,7 +12,14 @@ async function loadDOM(event){
     })
 }
 async function loadViewName(event, name){
-    const req = await fetch("/"+name);
+    const req = await fetch("/"+name+'/',
+        {
+         method:'POST',
+         headers:{
+            'X-CSRFToken':document.getElementsByName('csrfmiddlewaretoken')[0].value
+         }   
+        }
+    );
     const main = get("#mainContentContainer").innerHTML = await req.text()
     getAll('.active').forEach((element)=>{
         element.classList.remove('active');
