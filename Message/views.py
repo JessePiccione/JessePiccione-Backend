@@ -16,6 +16,6 @@ class MessageView(View):
             #message = client.messages.create(from_=from_number, 
             #                                body=f'''New Message from {request.POST['name']}\nEmail: {request.POST['email']}\nSubject: {request.POST['subject']}\nMessage:\n{request.POST['message']}''',
             #                                to=to_number)
-            return index(request)
+            return index.get(self,request)
         raise ValidationError()
                 
