@@ -33,6 +33,7 @@ CSRF_COOKIE_SECURE = True
 # Application definition
 
 INSTALLED_APPS = [
+    'JessePiccioneAssistant.apps.JessepiccioneassistantConfig',
     'Message.apps.MessageConfig',
     'Awards.apps.AwardsConfig',
     'Projects.apps.ProjectsConfig',
@@ -46,7 +47,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'django_extensions'
+    'django_extensions',
+    'rest_framework'
 ]
 
 

@@ -1,159 +1,42 @@
 <div class="row px-5">
-    <div class='col-12 col-lg-4'>
-        <div class='card text-light primary-color bg-gradient my-5'>
+    {% for entry in entries %}
+    <div class='col-12 col-xxl-4'>
+        <div class='card text-light primary-color bg-gradient my-4'>
             <div class='card-body m-3 p-3'>
                 <h1 class='card-title text-center'>
-                    Why Software Engineering?
+                    {{entry.title}}
                 </h1>
                 <hr />
-                <h5 class='card-text text-decoration-none'>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    My passion for software engineering began when I was in High School. I was always under the assumption that 
-                    I was going to do something involving math. When I walked into my first computer programming class, I was 
-                    not thinking that 'software engineer' would be the career path that I would be pursuing. I was
-                    told by a friend that I would love the class because I was into computers and had a math mindset for that kind of 
-                    stuff. I take the class and within two weeks the teacher puts me into the College Level AP CS class where I went 
-                    on and was one of two kids in my class that got a perfect score on the AP CS A exam. After that, I had some free time
-                    and was able to join a group in the next level class called Advanced Software Engineering and participate in the design
-                    and development of an application called shopping simulator. Shopping Simulator is a computer simulation of a grocery 
-                    store built using the Unity Game Engine. My team was able to bring this to the 2018 Steam tank regionals and take home
-                    the Win. Although, what truly made me fall in love with software was this feeling of building an application. the 
-                    feeling of being able to solve problems with software was my dream.
-                    <div class="text-center">
-                        <button class='btn btn-light btn-gradient m-4' type='button' data-bs-toggle='collapse' data-bs-target='#technologies_shopping_simulator' aria-expanded='false' aria-controls="technologies">
-                            <h4 class='m-2'>Technologies Used Here</h4>
-                        </button>
-                        <div class='collapse' id ='technologies_shopping_simulator'>
-                            <ul class='list-group'>
-                                <li class='list-group-item list-group-item-action'>
-                                    <b>C/C++</b> - the main programming language behind the aplication and gaming engine.
-                                </li>
-                                <li class='list-group-item list-group-item-action'>
-                                    <b>Unity</b> - the game engine that was used to create the simulator.
-                                </li>
-                                <li class='list-group-item list-group-item-action'>
-                                    <b>OpenGL</b> - an open source shader language used to optimized gameplay and game performance.
-                                </li>
-                            </ul>
-                        </div> 
+                <div class='card'>
+                    <div class='card-body'>
+                        <h6 class='card-text text-decoration-none'>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            {{entry.description}}
+                            
+                        <h6>
                     </div>
-                    <div class='text-center embed-responsive-item embed-responsive-16by9'>
-                        <iframe style='min-width:100%;min-height:400px'class='embed-responsive-item mt-2' src="https://www.youtube.com/embed/N27zYFvTHCo?si=5HHY0rKvsqbskk6O" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                </div>
+                <div class="text-center">
+                    <button class='btn btn-light btn-gradient m-4' type='button' data-bs-toggle='collapse' data-bs-target="#technologies_{{entry.id}}" aria-expanded='false' aria-controls="technologies">
+                        <h4 class='m-2'>Technologies Used Here</h4>
+                    </button>
+                    <div class='collapse' id ="technologies_{{entry.id}}">
+                        <ul class='list-group'>
+                            {% for tech in technologies %}
+                            {%if tech.pageEntry.title == entry.title %}
+                            <li class='list-group-item list-group-item-action'>
+                                <b>{{tech.title}}</b> - {{tech.description}} .
+                            </li>
+                            {% endif %}
+                            {% endfor %}
+                        </ul>
                     </div> 
-                </h5>
+                </div>
+                <div class='text-center embed-responsive-item embed-responsive-16by9'>
+            <iframe style='min-width:100%;min-height:400px'class='embed-responsive-item mt-2' src="{{entry.URL}}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                </div> 
             </div>
         </div>
     </div>
-    <div class='col-12 col-lg-4'>
-        <div class='card text-light primary-color bg-gradient my-5'>
-            <div class='card-body m-3 p-3'>
-                <h1 class='card-title text-center'>
-                    Yes Software Engineering!
-                </h1>
-                <hr />
-                <h5 class='card-text'>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    In college, the school I obtained my ascociates in was based primarily in Java. This out me at an advantage given 
-                    my prior experience in Highschool. When I finished my Ascociates, I then went to Oregon State University. In hindsight,
-                    this was my biggest challenge. Oregon State University, does not use Java for the majority of their computer science classes,
-                    I was now presented a challenge of working with 3 different langauges, NodeJs, Python, and Dart. At Oregon State I developed 
-                    many applcations. I was one of the creators of a cross platform mobile application called Chirp. Chirp is a mobile application
-                    developed using dart and Google's Flutter framework. It is a powerful tool that can easily develop a single application that 
-                    can be ran on several different platforms or operating systems. The purpose and main functional requirement of the Chirp 
-                    application is to provide a connection to a bird sound prediction machine learning model. This project stands out to me the 
-                    most because it invovled more than just coding problems. My team and I were able to go through every stage of the software
-                    development life cycle where we got to design, develop, and maintain a real world application that was sponsered by a client.
-                    <div class="text-center">
-                        <button class='btn btn-light btn-gradient m-4' type='button' data-bs-toggle='collapse' data-bs-target='#technologies_chirp' aria-expanded='false' aria-controls="technologies">
-                            <h4 class='m-2'>Technologies Used Here</h4>
-                        </button>
-                        <div class='collapse' id ='technologies_chirp'>
-                            <ul class='list-group'>
-                                <li class='list-group-item list-group-item-action'>
-                                    <b>Dart</b> - the programming language used to create an application of Flutter.
-                                </li>
-                                <li class='list-group-item list-gorup-item-action'>
-                                    <b>Flutter</b> - the framework used to bring a standard to IOS and Android Devices.
-                                </li>
-                                <li class='list-group-item list-group-item-action'>
-                                    <b>AWS</b> - the platform that hosts the backend of chirp as well as the ML Model.
-                                </li>
-                                <li class='list-group-item list-group-item-action'>
-                                    <b>NoSql</b> - the backend database used to collect data for the machine learning model.
-                                </li>
-                                <li class='list-group-item list-group-item-action'>
-                                    <b>Python with Tensor Flow</b> - the main language and library behind the machine learning model.
-                                </li>
-                            </ul>
-                        </div> 
-                    </div>
-                    <div class='text-center embed-responsive-item embed-responsive-16by9'>
-                        <iframe style='min-width:100%;min-height:400px' class='embed-responsive-item mt-2' src="https://www.youtube.com/embed/F9sCQNlOVK4?si=B-D5c6-oENg0aOlB" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-                    </div>
-                </h5>
-            </div>
-        </div>
-    </div>
-    <div class='col-12 col-lg-4'>
-        <div class='card text-light primary-color bg-gradient my-5'>
-            <div class='card-body m-3 p-3'>
-                <h1 class='card-title text-center'>
-                    What is this? - JessePiccione.info
-                </h1>
-                <hr />
-                <h5 class='card-text text-decoration-none'>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    Post College and internship, I have been looking for a way to combine my passion with my job search. That is 
-                    where I came up with the idea for the application that is before you called JessePiccione.info. JessePiccione.info
-                    looks, feels and moves like a personal eResume. It is by no means a traditional website, but rather is fullstack 
-                    web application that was designed and developed using Pythons Django Framework, a Bootstrap Frontend and a MySql
-                    database backend. All of the information stored on this application is controlled outside of the actual code. This
-                    simply means at anytime, with the right credentials the visible data can be changed and edited without restarting the 
-                    application. Another key feature is the application also supports the ability to send a messsage to the 
-                    admin using the twilio api. Please note the database also records the relavent message that was sent to serve 
-                    as a fallback incase the twilio api fails. In the event a bug is discovered please report it by submitting a message,
-                    or contact me directly using the information below. I hope you enjoy this application it has been a journey to make 
-                    it.
-                    <br/>
-                    Thank you for your time and interest, Jesse Piccione.
-                    <div class="text-center">
-                        <button class='btn btn-light btn-gradient m-4' type='button' data-bs-toggle='collapse' data-bs-target='#technologies' aria-expanded='false' aria-controls="technologies">
-                            <h4 class='m-2'>Technologies Used Here</h4>
-                        </button>
-                        <div class='collapse' id ='technologies'>
-                            <ul class='list-group'>
-                                <li class='list-group-item list-group-item-action'>
-                                    <b>Python</b> - the main programming language used for the server.
-                                </li>
-                                <li class='list-group-item list-group-item-action'>
-                                    <b>Django</b> - a webserver framework used to streamline server configuration.
-                                </li>
-                                <li class='list-group-item list-group-item-action'>
-                                    <b>MySql</b> - an efficient database backend for storing my resume's information.
-                                </li>
-                                <li class='list-group-item list-group-item-action'>
-                                    <b>HTML</b> -  used for basic webpage modeling.
-                                </li>
-                                <li class='list-group-item list-group-item-action'>
-                                    <b>CSS</b> - used for basic webpage styling.
-                                </li>
-                                <li class='list-group-item list-group-item-action'>
-                                    <b>Javascript</b> - used for basic webpage scripting.
-                                </li>
-                                <li class='list-group-item list-group-item-action'>
-                                    <b>Bootstrap</b> - the main framework used to streamline front-end development.
-                                </li>
-                                <li class='list-group-item list-group-item-action'>
-                                    <b>Twilio</b> - the text message API service used to power the messaging system.
-                                </li>
-                            </ul>
-                        </div> 
-                    </div>
-                    <div class='text-center embed-responsive-item embed-responsive-16by9'>
-                        <iframe style='min-width:100%;min-height:400px' class='embed-responsive-item mt-2' src="https://www.youtube.com/embed/qbdONb7IVjY?si=n3SYCkKp3-Bp-lNz" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-                    </div>
-                </h5>
-            </div>
-        </div>
-    </div>
+    {% endfor %}
 </div>

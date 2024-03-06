@@ -1,12 +1,13 @@
-<div class='row mb-5'>
+<div class='row px-5'>
     {% for p in objects %}
-        <div class='col-12  col-lg-6 mx-0 mt-5'>
-            <div class='card primary-color bg-gradient text-light'>
+        <div class='col-12  col-xxl-6'>
+            <div class='card primary-color bg-gradient text-light my-4'>
                 <h2 class='card-title text-center p-3 m-3 mb-0'>
                     {{p.name}}
+                    <hr class='mb-0' />
                 </h2>
-                <div class='card-body'>
-                    <ul class='list-group m-3'>
+                <div class='card-body m-3 mt-0'>
+                    <ul class='list-group'>
                         <li class='list-group-item list-group-item-action'>
                             <h5 class='card-text'>
                                 {{p.sponser}}

@@ -27,4 +27,5 @@ urlpatterns = [
     path('workexperience/', include('WorkExperience.urls')),
     path('awards/', include('Awards.urls')),
     path('message/', include('Message.urls')),
+    path('assistant/', include('JessePiccioneAssistant.urls'))
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
