@@ -5,3 +5,5 @@ twilio
 django-extensions
 Werkzeug
 pyOpenSSL
+openai
+djangorestframework

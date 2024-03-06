@@ -1,18 +1,20 @@
-<div class='container'>
-    <div class='row'>
-        <div class='col-12 mx-0 mt-5'>
-            <div class='card primary-color bg-gradient text-light'>
-                <h2 class='card-title text-center m-3 p-3 mb-0'>Awards &amp; Certifications</h2>
-                <div class='card-body'>
-                    <ul class='list-group m-3'> 
-                        {% for a in objects %}
-                            <li class='list-group-item list-group-item-action'>
-                                <h6>{{a.title}} - {{a.year}}</h6>
-                            </li>
-                        {% endfor %}
-                    </ul>
-                </div>
+<div class='row px-5'>
+    <div class='col-12'>
+        <div class='card primary-color bg-gradient text-light my-4'>
+            <h2 class='card-title text-center m-3 p-3 mb-0'>
+                Awards &amp; Certifications
+                <hr class='mb-0' />
+            </h2>
+            <div class='card-body m-3 mt-0'>
+                <ul class='list-group'> 
+                    {% for a in objects %}
+                        <li class='list-group-item list-group-item-action'>
+                            <h6>{{a.title}} - {{a.year}}</h6>
+                        </li>
+                    {% endfor %}
+                </ul>
             </div>
         </div>
     </div>
 </div>
+

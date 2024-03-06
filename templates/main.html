@@ -50,22 +50,22 @@
                     <div class='collapse navbar-collapse' id ='navbarSupportedContent'>
                         <ul class="navbar-nav me-auto p-3 align-self-bottom">
                             <li class='nav-item'>
-                                <a class='nav-link active' id='home' href='#'><h5>Home</h5></a>
+                                <a class='nav-link active' id='home' href='' data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"><h5>Home</h5></a>
                             </li>
                             <li class='nav-item'>
-                                <a class='nav-link' id='workexperience' href='#'><h5>Experience</h5></a>
+                                <a class='nav-link' id='workexperience' href='' data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"><h5>Experience</h5></a>
                             </li>
                             <li class='nav-item'>
-                                <a class='nav-link' id="education" href="#"><h5>Education</h5></a>
+                                <a class='nav-link' id="education" href="" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"><h5>Education</h5></a>
                             </li>
                             <li class='nav-item'> 
-                                <a class='nav-link' id='projects' href="#"><h5>Projects</h5></a>
+                                <a class='nav-link' id='projects' href="" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"><h5>Projects</h5></a>
                             </li>
                             <li class='nav-item'>
-                                <a class='nav-link' id='skill' href="#"><h5>Skills</h5></a>
+                                <a class='nav-link' id='skill' href="" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"><h5>Skills</h5></a>
                             </li>
                             <li class='nav-item'>
-                                <a class='nav-link' id='awards' href='#'><h5>Awards &amp; Certifications</h5></a>
+                                <a class='nav-link' id='awards' href='' data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"><h5>Awards &amp; Certifications</h5></a>
                             </li>
                         </ul>
                     </div>
@@ -75,10 +75,10 @@
         <div class='container-fluid m-0 p-0' style='min-height:1700px;'>
             <div id ="mainContentContainer" class='container-fluid px-5' >
             </div>
-            <div class="container">
+            <div class="container-fluid px-5">
                 <div class='row'>
                     <div class='col-12'>
-                        <div class='card text-light primary-color bg-gradient my-4'>
+                        <div class='card text-light primary-color bg-gradient my-4 mx-5'>
                             <div class='card-body'>
                                 <h2 class='card-title text-center'>
                                     Leave a Message
@@ -101,14 +101,43 @@
                 </div>
             </div>
         </div>
-        <div class="container-fluid text-light primary-color bg-gradient fixed-bottom p-3">
+        <div class="container-fluid text-light fixed-bottom p-0">
             <div class='row'>
+                <div class='col-6 col-lg-7 col-xl-8 col-xxl-9'></div>
+                <div class='col-6 col-lg-5 col-xl-4 col-xxl-3'>
+                    <div class='accordion' id='accordianAssistant' data-bs-theme='dark'>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button accordion-button-active-bg-none collapsed primary-color bg-gradient" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                    <h4>Ask about Jesse - AI Assistant</h4>
+                                </button>
+                            </h2>
+                            <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample" >
+                                <div class="accordion-body bg-white m-0 pe-0" data-bs-theme='light'>
+                                    <div id='assistantMessageRows' style='max-height:600px;overflow-y:scroll;overflow-x:hidden;' data-bs-theme='light'>
+                                    </div>
+                                    <hr/>
+                                    <form class='row g-3' data-bs-theme='light' id='assistantForm'>
+                                        <div class='col-9'>
+                                            <input id='assistantMessage' type='text' class='form-control' placeholder='Ask a Question...'>
+                                        </div>
+                                        <div class='col-2'>
+                                            <button class='btn primary-color btn-gradient' data-bs-theme='dark'>Send</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class='row primary-color bg-gradient m-0 py-3'>
                 <div class='col-6 text-start'>    
                     Email: REDACTED@gmail.com
                     <br />
                     Phone: 732-908-0037
                 </div>
-                <div class='col-6 text-end m-0 px-4'>
+                <div class='col-6 text-end m-0 px-3'>
                     <a class='text-white text-decoration-none' href='https://www.linkedin.com/in/jesse-piccione'>
                         LinkedIn <i class="fa-brands fa-linkedin"></i>
                     </a>
