@@ -58,6 +58,25 @@ loadMessage(event, message)
 }
 async function loadMessage(event, message){
     event.preventDefault();
+    var messageRows = get("#assistantMessageRows")
+    messageRows.innerHTML += `<div class='row mb-2'>
+    <div class='col-10 position-relative end-0'>
+        <div class='card' data-bs-theme='light'>
+            <div class='card-body placeholder-glow'>
+                <span class='placeholder col-7'></span>
+                <span class='placeholder col-4'></span> 
+                <span class='placeholder col-4'></span>
+                <span class='placeholder col-6'></span>
+                <span class='placeholder col-5'></span>
+                <span class='placeholder col-4'></span>
+            </div>
+            <div class='d-flex align-items-center card-footer placeholder-glow'>
+                Loading... 
+                <div class="spinner-border spinner-border-sm ms-auto" role="status" aria-hidden="true"></div>
+            </div>
+        </div>
+    </div>
+</div>`;
     const body = {
         'message':message
     } 
@@ -73,7 +92,7 @@ async function loadMessage(event, message){
     var res = await req.text() + ""
     res = JSON.parse(res)
     date = new Date(res.time);
-    var messageRows = get('#assistantMessageRows')
+    messageRows.children[messageRows.children.length-1].remove()
     messageRows.innerHTML += `<div class='row mb-2'>
     <div class='col-10 position-relative end-0'>
         <div class='card' data-bs-theme='light'>
