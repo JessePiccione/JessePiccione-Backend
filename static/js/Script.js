@@ -73,10 +73,10 @@ async function loadMessage(event, message){
             <div class='d-flex align-items-center card-footer placeholder-glow'>
                 Loading... 
                 <div class="spinner-border spinner-border-sm ms-auto" role="status" aria-hidden="true"></div>
-            </div>
         </div>
     </div>
 </div>`;
+    messageRows.scrollTop = messageRows.scrollHeight
     const body = {
         'message':message
     } 
