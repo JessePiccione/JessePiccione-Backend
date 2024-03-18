@@ -1,6 +1,3 @@
 JessePiccioneAssistant/creds.py
 Message/twiliocreds.py
 JessePiccione/keys.py
-certificate.crt
-private.key
-ca_bundle.crt

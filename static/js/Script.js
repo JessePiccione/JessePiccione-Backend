@@ -37,7 +37,7 @@ async function sendMessage(event){
     event.preventDefault()
     var messageElement = get('#assistantMessage');
     const message = messageElement.value;
-    const date = new Date(Date.now());
+    const date = new Date();
     messageElement.value = '';
     var messageRows = get('#assistantMessageRows');
     messageRows.innerHTML += `<div class='row mb-2'>
@@ -48,7 +48,7 @@ async function sendMessage(event){
                 ${message}
             </div>
             <div class='card-footer text-end'>
-            ${date.getFullYear()}-${date.getMonth()}-${date.getDay()} ${date.getHours()}:${date.getMinutes()}:${date.getSeconds()}.${date.getMilliseconds()}
+            ${date.toLocaleString()}
             </div>
         </div>
     </div>
@@ -91,7 +91,7 @@ async function loadMessage(event, message){
     );
     var res = await req.text() + ""
     res = JSON.parse(res)
-    date = new Date(res.time);
+    date = new Date(Date.now());
     messageRows.children[messageRows.children.length-1].remove()
     messageRows.innerHTML += `<div class='row mb-2'>
     <div class='col-10 position-relative end-0'>
@@ -100,7 +100,7 @@ async function loadMessage(event, message){
                 ${res.message}
             </div>
             <div class='card-footer'>
-                ${date.getFullYear()}-${date.getMonth()}-${date.getDay()} ${date.getHours()}:${date.getMinutes()}:${date.getSeconds()}.${date.getMilliseconds()}
+                ${date.toLocaleString()}
             </div>
         </div>
     </div>

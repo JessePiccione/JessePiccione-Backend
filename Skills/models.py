@@ -11,6 +11,5 @@ class Skill(models.Model):
         SkillCategory,
         on_delete = models.PROTECT
     )
-    rating = models.SmallIntegerField()
     def __str__(self):
-        return f'[{self.name}, {self.category}, {self.rating}]'
+        return f'[{self.name}, {self.category}]'
