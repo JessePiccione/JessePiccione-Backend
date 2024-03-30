@@ -5,3 +5,4 @@ twilio
 pyOpenSSL
 openai
 djangorestframework
+djoser
