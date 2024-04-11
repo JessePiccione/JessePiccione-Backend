@@ -16,7 +16,7 @@
                 <button type='button' class='btn-close btn-close-white' data-bs-dismiss='offcanvas' aria-label-"Close" data-bs-theme='light'></button>
             </div>
             <div class='offcanvas-body'>
-                <form class='row text-black p-4' method='POST' action='/message/' data-bs-theme='light'>
+                <form id='messageForm' class='row text-black p-4' method='POST' action='/message/' data-bs-theme='light'>
                     {% csrf_token %}
                     {{ f.as_table }}
                     <div class='col m-0 p-0'>
@@ -72,7 +72,9 @@
                 </div>
             </nav>
         </div> 
-        <div class='container-fluid m-0 p-0' style='min-height:1700px;'>
+   
+        <div class='container-fluid m-0 p-0 z-3' style='min-height:1700px;'>     
+            <div id ='body' class='sticky-top' style='z-index:-1000;transform: translateZ(0);'></div>
             <div id ="mainContentContainer" class='container-fluid px-5' >
             </div>
             <div class="container-fluid px-5">
@@ -152,8 +154,29 @@
                 </div>
             </div>
         </div>
-    </body>
+    </body>   
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r121/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vanta@0.5.24/dist/vanta.net.min.js"></script>
+    
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
     <script src="https://kit.fontawesome.com/4877586813.js" crossorigin="anonymous"></script>
     <script src= {% static 'js\Script.js' %}></script>
+    <script>
+        VANTA.NET({
+          el: "#body",
+          mouseControls: true,
+          touchControls: window.innerWidth > 768,
+          gyroControls: false,
+          minHeight: window.innerHeight+100,
+          minWidth: 200.00,
+          scale: 1.0,
+          scaleMobile: 1.00,
+          color: 0x000031,
+          backgroundColor: 0xffffff,
+          points: (window.innerWidth > 768)? 20:12,
+          maxDistance: 30,
+          spacing: 30,
+          showDots: false
+        })
+        </script>
 </html>

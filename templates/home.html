@@ -1,5 +1,5 @@
 <div class="row px-5">
-    {% for entry in entries %}
+    {% for  entry in entries %}
     <div class='col-12 col-xxl-4'>
         <div class='card text-light primary-color bg-gradient my-4'>
             <div class='card-body m-3 p-3'>
@@ -32,8 +32,8 @@
                         </ul>
                     </div> 
                 </div>
-                <div class='text-center embed-responsive-item embed-responsive-16by9'>
-            <iframe style='min-width:100%;min-height:400px'class='embed-responsive-item mt-2' src="{{entry.URL}}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                <div class='text-center ratio ratio-16x9'>
+            <iframe class='embed-responsive-item mt-2' src="{{entry.URL}}" title="YouTube Video"  allowfullscreen></iframe>
                 </div> 
             </div>
         </div>

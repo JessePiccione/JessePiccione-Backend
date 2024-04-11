@@ -24,6 +24,7 @@ class MessageSerializer(serializers.ModelSerializer):
         model = Message
         fields = '__all__' 
 class SkillSerializer(serializers.ModelSerializer):
+    category = SkillCategory()
     class Meta:
         model = Skill
         fields = '__all__'
@@ -31,7 +32,7 @@ class SkillCategorySerializer(serializers.ModelSerializer):
     class Meta:
         model = SkillCategory 
         fields = '__all__'
-class ProjectSerializer(serializers.ModelSerializers):
+class ProjectSerializer(serializers.ModelSerializer):
     class Meta:
         model = Project
         fields = '__all__'
