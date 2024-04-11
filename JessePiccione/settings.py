@@ -22,7 +22,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = secret_key_var
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 ALLOWED_HOSTS = ["*"]
 CSRF_TRUSTED_ORIGINS = ['https://www.jessepiccione.info', 'https://jessepiccione.info']
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
@@ -36,7 +36,6 @@ CSRF_COOKIE_SECURE = False
 # Application definition
 
 INSTALLED_APPS = [
-    
     'JessePiccioneAssistant.apps.JessepiccioneassistantConfig',
     'Message.apps.MessageConfig',
     'Awards.apps.AwardsConfig',

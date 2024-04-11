@@ -1,3 +1,4 @@
+//dom event listeners for JessePiccione.info 
 document.addEventListener('DOMContentLoaded', loadDOM);
 function get(name){
     return document.querySelector(name);
@@ -6,6 +7,8 @@ function getAll(name){
     return document.querySelectorAll(name);
 }
 async function loadDOM(event){
+    form = get('#messageForm');
+    form.addEventListener('submit', interceptMessage)
     loadViewName(event,'home');
     getAll('.nav-link').forEach((element)=>{
         element.addEventListener("click",function(event){loadViewName(event,element.id)})
@@ -26,8 +29,10 @@ async function loadViewName(event, name){
         element.classList.remove('active');
     })
     get('#'+name).classList.add('active')
+    
     event.preventDefault()
 }
+//script to communicate with GPT Assistant Model.
 async function loadAssistant(event){
     //load intial message from assistant 
     await loadMessage(event, 'Give a greetings message to someone who just visited the JessePiccione.info website.');
@@ -106,4 +111,28 @@ async function loadMessage(event, message){
     </div>
 </div>`
     messageRows.scrollTop = messageRows.scrollHeight
+}
+//message intercepter
+async function interceptMessage(event){
+    event.preventDefault();
+    form = get('#messageForm')
+    formdata = new FormData(form);
+    formdata.delete('csrfmiddlewaretoken');
+    console.log(formdata)
+    fetch(form.action,{
+        method:'POST',
+        headers:{
+            'X-CSRFToken':document.getElementsByName('csrfmiddlewaretoken')[0].value
+         },
+        body: formdata})
+    .then(response =>response.status)
+    .then(data=> {
+        if(data==201){
+            alert('Message Successfully Sent!')
+        }
+        else{
+            alert('Message Was Not Successfully Sent')
+        }
+        location.reload()
+    })
 }
