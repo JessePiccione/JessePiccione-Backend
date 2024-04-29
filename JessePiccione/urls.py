@@ -28,7 +28,7 @@ urlpatterns = [
     path('awards/', include('Awards.urls')),
     path('message/', include('Message.urls')),
     path('assistant/', include('JessePiccioneAssistant.urls')),
-    #path('api/', include('ResumeAPI.urls')),
+    path('api/', include('ResumeAPI.urls')),
     path('api/', include('djoser.urls')),
     path('api/', include('djoser.urls.authtoken'))
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

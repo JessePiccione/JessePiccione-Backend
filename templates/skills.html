@@ -1,23 +1,20 @@
 <div class='row px-5'>
-    {% for t in types %}
+    {% for entry, skills in entries.items %}
         <div class='col-12 col-xxl-4'>
             <div class = 'card primary-color bg-gradient text-white my-4'>
                 <h2 class='card-title text-center p-3 m-3 mb-0'>
-                    {{t.category_name}}
+                    {{entry}}
                     <hr class='mb-0' />
                 </h2>
                 <div class='card-body m-3 mt-0 p-3'>
                     <ul class='list-group'>
                         {% for s in skills %}
-                            {% if s.category.category_name == t.category_name %}
-                                <li class='list-group-item list-group-item-action'>
-                                    <h6>{{s.name}}</h6>
-                                </li>
-                            {% endif %}                        
+                            <li class='list-group-item list-group-item-action'>
+                                <h6>{{s.name}}</h6>
+                            </li>                      
                         {% endfor %}
                     </ul>
                 </div>
-                
             </div>
         </div>
     {% endfor %}

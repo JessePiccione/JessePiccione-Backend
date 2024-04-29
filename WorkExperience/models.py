@@ -6,6 +6,6 @@ class WorkExperience(models.Model):
     title_held = models.CharField(max_length=100)
     start_date = models.DateField()
     end_date = models.DateField()
-    description = models.CharField(max_length=255)
+    description = models.CharField(max_length=511)
     def __str__(self):
         return f'[{self.company_name}, {self.location}, {self.title_held}, {self.start_date}, {self.end_date}, {self.description}]'
