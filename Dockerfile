@@ -1,16 +1,29 @@
-# syntax=docker/dockerfile:1
 
-# Comments are provided throughout this file to help you get started.
-# If you need more help, visit the Dockerfile reference guide at
-# https://docs.docker.com/go/dockerfile-reference/
+FROM python:3.12
 
-ARG PYTHON_VERSION=3.11.7
-FROM python:${PYTHON_VERSION}-slim as base
-
+# Set environment variables
 ENV PYTHONUNBUFFERED 1
+
+# Create and set the working directory
 RUN mkdir /JessePiccione
 WORKDIR /JessePiccione
-COPY requirements.txt /JessePiccione/
-RUN pip install --user -r requirements.txt
+
+# Update the package list and install the MySQL development library
+RUN apt-get update && apt-get install -y default-libmysqlclient-dev build-essential
+
+# Install pipenv
+RUN pip install pipenv
+
+# Copy the Pipfile and Pipfile.lock into the image
+COPY Pipfile Pipfile.lock /JessePiccione/
+
+# Install the Python dependencies
+RUN pipenv install --deploy --ignore-pipfile
+
+# Copy the rest of your application's code into the image
 COPY . /JessePiccione/
-CMD python manage.py runserver --insecure 0.0.0.0:80
+
+# Run your application
+CMD pipenv run python manage.py runserver --insecure 0.0.0.0:80
+
+

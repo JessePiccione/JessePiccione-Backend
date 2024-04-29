@@ -22,7 +22,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = secret_key_var
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 ALLOWED_HOSTS = ["*"]
 CSRF_TRUSTED_ORIGINS = ['https://www.REDACTED.info', 'https://REDACTED.info']
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
@@ -93,8 +93,13 @@ WSGI_APPLICATION = 'JessePiccione.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'REDACTED',
+        'NAME': 'REDACTED',
+        'HOST':'REDACTED',
+        'PORT':'REDACTED',
+        'USER':secret_db_creds['user'],
+        'PASSWORD':secret_db_creds['password'],
+            
     }
 }
 
