@@ -1,24 +1,24 @@
-<div class="row px-5">
+<div class="row">
     {% for  entry in entries %}
     <div class='col-12 col-xxl-4'>
-        <div class='card text-light primary-color bg-gradient my-4'>
-            <div class='card-body m-3 p-3'>
+        <div class='card text-light primary-color bg-gradient'>
+            <div class='card-body'>
                 <h1 class='card-title text-center'>
                     {{entry.title}}
                 </h1>
                 <hr />
                 <div class='card'>
                     <div class='card-body'>
-                        <h6 class='card-text text-decoration-none'>
+                        <p class='card-text text-center'>
                             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                             {{entry.description}}
                             
-                        <h6>
+                        <p>
                     </div>
                 </div>
                 <div class="text-center">
-                    <button class='btn btn-light btn-gradient m-4' type='button' data-bs-toggle='collapse' data-bs-target="#technologies_{{entry.id}}" aria-expanded='false' aria-controls="technologies">
-                        <h4 class='m-2'>Technologies Used Here</h4>
+                    <button class='btn btn-light btn-gradient' type='button' data-bs-toggle='collapse' data-bs-target="#technologies_{{entry.id}}" aria-expanded='false' aria-controls="technologies">
+                        Technologies Used Here
                     </button>
                     <div class='collapse' id ="technologies_{{entry.id}}">
                         <ul class='list-group'>
@@ -33,7 +33,7 @@
                     </div> 
                 </div>
                 <div class='text-center ratio ratio-16x9'>
-            <iframe class='embed-responsive-item mt-2' src="{{entry.URL}}" title="YouTube Video"  allowfullscreen></iframe>
+            <iframe class='embed-responsive-item' src="{{entry.URL}}" title="YouTube Video"  allowfullscreen></iframe>
                 </div> 
             </div>
         </div>

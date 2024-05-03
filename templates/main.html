@@ -5,6 +5,11 @@
         <title>Welcome! to Jesse's Resume App!</title>
         <link rel='icon' type="image/x-icon" href="{% static '/img/favicon.ico' %}">
         <link rel='apple-touch-icon' type='image/png' href="{% static '/img/apple-touch-icon.png' %}">
+        <meta name='author' content='Jesse Piccione'>
+        <meta name='robots' content='follow'>
+        <meta name="viewport" content='width=device-width, initial-scale=1.0'>
+        <meta name="description" content='The JessePiccione.info eResume application is a cutting-edge Full-Stack web application developed by Jesse Piccione. This dynamic platform serves as a comprehensive digital representation of Jesses professional qualifications, experience, and skills in the field of Software Engineering. Powered by Django and Twilio, the eResume showcases Jesses expertise in Python, Django, Bootstrap, MySQL, GCP, Twilio, and the OpenAI Assistant API. The user-friendly interface provides easy access to Jesses resume information, allowing visitors to gain a clear understanding of his background and capabilities. By leveraging Django models and migrations framework, the website seamlessly interacts with a MySQL database to deliver a fluid and interactive user experience. Overall, the JessePiccione.info eResume application stands as a testament to Jesses proficiency as a Full-stack, Frontend, and Backend developer, demonstrating his ability to create innovative and functional web solutions using a diverse range of technologies. Visit the website to explore Jesse Picciones professional journey and expertise in the software engineering domain.'>
+        <meta name="keywords" content='The Dude'>
     </head>
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
@@ -28,9 +33,9 @@
         <div class='container-fluid bg-black bg-gradient m-0 p-0 z-3'>
             <div class='row p-3 m-0'>
                 <div class = 'col-6 col-sm-3 col-md-3 col-xl-1 m-0'>
-                    <img class = 'img-fluid rounded-profile m-3' src="{% static 'img\resume_site_profile.jpg' %}"></img>
+                    <img class='img-fluid rounded-profile m-3' src="{% static 'img\resume_site_profile.jpg' %}"></img>
                 </div>
-                <div class = 'col-6 col-sm-7 col-md-7 col-xl-10 align-self-center text-white m-3' >
+                <div class = 'col-5 col-sm-7 col-md-8 col-xl-10 align-self-center text-white m-3' >
                     <h1>
                         Jesse Piccione
                     </h1>
@@ -41,8 +46,8 @@
             </div>
         </div>    
         <div class='container-fluid sticky-top m-0 p-0'>
-            <nav class='navbar navbar-expand-lg primary-color bg-gradient p-1 m-0' data-bs-theme='dark'>
-                <div class='container-fluid p-3 m-0'>
+            <nav class='navbar navbar-expand-lg primary-color bg-gradient' data-bs-theme='dark'>
+                <div class='container-fluid m-0'>
                     <a class='navbar-brand mx-3'><h2>JessePiccione.info</h2></a>
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
@@ -50,22 +55,22 @@
                     <div class='collapse navbar-collapse' id ='navbarSupportedContent'>
                         <ul class="navbar-nav me-auto align-self-bottom">
                             <li class='nav-item'>
-                                <a class='nav-link active' id='home' href='' data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"><h5>Home</h5></a>
+                                <a class='nav-link active' id='home' href='' data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent">Home</a>
                             </li>
                             <li class='nav-item'>
-                                <a class='nav-link' id='workexperience' href='' data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"><h5>Experience</h5></a>
+                                <a class='nav-link' id='workexperience' href='' data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent">Experience</a>
                             </li>
                             <li class='nav-item'>
-                                <a class='nav-link' id="education" href="" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"><h5>Education</h5></a>
+                                <a class='nav-link' id="education" href="" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent">Education</a>
                             </li>
                             <li class='nav-item'> 
-                                <a class='nav-link' id='projects' href="" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"><h5>Projects</h5></a>
+                                <a class='nav-link' id='projects' href="" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent">Projects</a>
                             </li>
                             <li class='nav-item'>
-                                <a class='nav-link' id='skill' href="" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"><h5>Skills</h5></a>
+                                <a class='nav-link' id='skill' href="" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent">Skills</a>
                             </li>
                             <li class='nav-item'>
-                                <a class='nav-link' id='awards' href='' data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"><h5>Awards &amp; Certifications</h5></a>
+                                <a class='nav-link' id='awards' href='' data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent">Awards &amp; Certifications</a>
                             </li>
                         </ul>
                     </div>
@@ -80,7 +85,7 @@
             <div class="container-fluid px-5">
                 <div class='row'>
                     <div class='col-12'>
-                        <div class='card text-light primary-color bg-gradient my-4 mx-5'>
+                        <div class='card text-light primary-color bg-gradient py-3'>
                             <div class='card-body'>
                                 <h2 class='card-title text-center'>
                                     Leave a Message
@@ -91,27 +96,27 @@
                                 </h4>
                                 <div class='text-center my-5'>
                                     <button class='btn btn-light btn-gradient text-center' type='button' data-bs-toggle='offcanvas' data-bs-target = '#offCanvasForm' aria-controls='offCanvasBottom'>
-                                        <h4 class='m-2'>Open!</h4>
+                                        <h4 class=''>Open</h4>
                                     </button>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class='col-12' style='min-height:150px;'>
+                    <div class='col-12' style='min-height:200px;'>
                         
                     </div>
                 </div>
             </div>
         </div>
-        <div class="container-fluid text-light fixed-bottom p-0">
+        <div class="container-fluid text-light fixed-bottom">
             <div class='row'>
-                <div class='col-6 col-lg-7 col-xl-8 col-xxl-9'></div>
-                <div class='col-6 col-lg-5 col-xl-4 col-xxl-3'>
-                    <div class='accordion' id='accordianAssistant' data-bs-theme='dark'>
+                <div class='col z-0'></div>
+                <div class='col-9'>
+                    <div class='accordion' id='accordianAssistant'  data-bs-theme='dark'>
                         <div class="accordion-item">
                             <h2 class="accordion-header">
                                 <button class="accordion-button accordion-button-active-bg-none primary-color bg-gradient" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                    <h4>Ask about Jesse - AI Assistant</h4>
+                                    <h4>JessePiccione.info</h4>
                                 </button>
                             </h2>
                             <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample" >
@@ -119,8 +124,8 @@
                                     <div id='assistantMessageRows' style='max-height:600px;overflow-y:scroll;overflow-x:hidden;' data-bs-theme='light'>
                                     </div>
                                     <hr/>
-                                    <form class='row g-3' data-bs-theme='light' id='assistantForm'>
-                                        <div class='col-9'>
+                                    <form class='row' data-bs-theme='light' id='assistantForm'>
+                                        <div class='col-8'>
                                             <input id='assistantMessage' type='text' class='form-control' placeholder='Ask a Question...'>
                                         </div>
                                         <div class='col-2'>
@@ -134,12 +139,12 @@
                 </div>
             </div>
             <div class='row primary-color bg-gradient m-0 py-3'>
-                <div class='col-6 text-start'>    
+                <div class='col-8 text-start m-0'>    
                     Email: REDACTED@gmail.com
                     <br />
                     Phone: 732-908-0037
                 </div>
-                <div class='col-6 text-end m-0 px-3'>
+                <div class='col-4 text-end m-0 px-3'>
                     <a class='text-white text-decoration-none' href='https://www.linkedin.com/in/jesse-piccione'>
                         LinkedIn <i class="fa-brands fa-linkedin"></i>
                     </a>
