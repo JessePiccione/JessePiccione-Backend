@@ -2,160 +2,169 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Welcome! to Jesse's Resume App!</title>
+        <title>JessePiccione.info</title>
         <link rel='icon' type="image/x-icon" href="{% static '/img/favicon.ico' %}">
         <link rel='apple-touch-icon' type='image/png' href="{% static '/img/apple-touch-icon.png' %}">
         <meta name='author' content='Jesse Piccione'>
         <meta name='robots' content='follow'>
         <meta name="viewport" content='width=device-width, initial-scale=1.0'>
+        <meta name='HandheldFriendly' content='true'>
         <meta name="description" content='The JessePiccione.info eResume application is a cutting-edge Full-Stack web application developed by Jesse Piccione. This dynamic platform serves as a comprehensive digital representation of Jesses professional qualifications, experience, and skills in the field of Software Engineering. Powered by Django and Twilio, the eResume showcases Jesses expertise in Python, Django, Bootstrap, MySQL, GCP, Twilio, and the OpenAI Assistant API. The user-friendly interface provides easy access to Jesses resume information, allowing visitors to gain a clear understanding of his background and capabilities. By leveraging Django models and migrations framework, the website seamlessly interacts with a MySQL database to deliver a fluid and interactive user experience. Overall, the JessePiccione.info eResume application stands as a testament to Jesses proficiency as a Full-stack, Frontend, and Backend developer, demonstrating his ability to create innovative and functional web solutions using a diverse range of technologies. Visit the website to explore Jesse Picciones professional journey and expertise in the software engineering domain.'>
         <meta name="keywords" content='The Dude'>
+        <meta name="language" content='english'>
+        <meta name="rating" content='safe for kids'>
+        <meta name='revised' content='5/5/2023'>
+        <!-- open graph protocal -->
+        <meta property='og:title' content='JessePiccione.info'>
+        <meta property='og:type' content='website'>
+        <meta property='og:url' content='https://REDACTED.info'>
+        <meta property='og:description' content='The JessePiccione.info eResume application is a cutting-edge Full-Stack web application developed by Jesse Piccione. This dynamic platform serves as a comprehensive digital representation of Jesses professional qualifications, experience, and skills in the field of Software Engineering. Powered by Django and Twilio, the eResume showcases Jesses expertise in Python, Django, Bootstrap, MySQL, GCP, Twilio, and the OpenAI Assistant API. The user-friendly interface provides easy access to Jesses resume information, allowing visitors to gain a clear understanding of his background and capabilities. By leveraging Django models and migrations framework, the website seamlessly interacts with a MySQL database to deliver a fluid and interactive user experience. Overall, the JessePiccione.info eResume application stands as a testament to Jesses proficiency as a Full-stack, Frontend, and Backend developer, demonstrating his ability to create innovative and functional web solutions using a diverse range of technologies. Visit the website to explore Jesse Picciones professional journey and expertise in the software engineering domain.'>
+        <meta property='og:image' content {% static 'img/android-chrome-512x512.png' %}
     </head>
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-    <link href="{% static 'css\Style.css' %}" rel='stylesheet' >
-    <body class='bg-light bg-gradient text-color-black p-0' >
-        <div class='offcanvas offcanvas-bottom bg-light' style='min-height:700px' tabindex='-1' id='offCanvasForm' aria-labeledby="offCanvasFormLabel" >
-            <div class='offcanvas-header primary-color bg-gradient m-2 mb-0 p-3'>
-                <h3 class='offcanvas-title text-white' id='offCanvasFormLabel'>Leave a Message</h3>
-                <button type='button' class='btn-close btn-close-white' data-bs-dismiss='offcanvas' aria-label-"Close" data-bs-theme='light'></button>
-            </div>
-            <div class='offcanvas-body'>
-                <form id='messageForm' class='row text-black p-4' method='POST' action='/message/' data-bs-theme='light'>
-                    {% csrf_token %}
-                    {{ f.as_table }}
-                    <div class='col m-0 p-0'>
-                        <button type='submit' class=' text-white btn btn-gradient primary-color my-3 p-0'><h5 class='m-3'>Send Message</h5></button>
-                    </div>
-                </form>
-            </div>
-        </div>
-        <div class='container-fluid bg-black bg-gradient m-0 p-0 z-3'>
-            <div class='row p-3 m-0'>
-                <div class = 'col-6 col-sm-3 col-md-3 col-xl-1 m-0'>
-                    <img class='img-fluid rounded-profile m-3' src="{% static 'img\resume_site_profile.jpg' %}"></img>
+    <link href="{% static 'css/Style.css' %}" rel='stylesheet' >
+    <body class='text-color-black' >
+        <div id = 'body' class='fixed-top p-0 m-0' style='min-height:100vh; z-index:-3000;'></div>
+        <div>
+            <div class='offcanvas offcanvas-bottom bg-light' style='min-height:90vh' tabindex='-1' id='offCanvasForm' aria-labeledby="offCanvasFormLabel" >
+                <div class='offcanvas-header primary-color bg-gradient m-2 mb-0'>
+                    <h3 class='offcanvas-title text-white' id='offCanvasFormLabel'>Leave a Message</h3>
+                    <button type='button' class='btn-close btn-close-white' data-bs-dismiss='offcanvas' aria-label-"Close" data-bs-theme='light'></button>
                 </div>
-                <div class = 'col-5 col-sm-7 col-md-8 col-xl-10 align-self-center text-white m-3' >
-                    <h1>
-                        Jesse Piccione
-                    </h1>
-                    <h3>
-                        Software Engineer
-                    </h3>
-                </div>
-            </div>
-        </div>    
-        <div class='container-fluid sticky-top m-0 p-0'>
-            <nav class='navbar navbar-expand-lg primary-color bg-gradient' data-bs-theme='dark'>
-                <div class='container-fluid m-0'>
-                    <a class='navbar-brand mx-3'><h2>JessePiccione.info</h2></a>
-                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-                    <div class='collapse navbar-collapse' id ='navbarSupportedContent'>
-                        <ul class="navbar-nav me-auto align-self-bottom">
-                            <li class='nav-item'>
-                                <a class='nav-link active' id='home' href='' data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent">Home</a>
-                            </li>
-                            <li class='nav-item'>
-                                <a class='nav-link' id='workexperience' href='' data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent">Experience</a>
-                            </li>
-                            <li class='nav-item'>
-                                <a class='nav-link' id="education" href="" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent">Education</a>
-                            </li>
-                            <li class='nav-item'> 
-                                <a class='nav-link' id='projects' href="" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent">Projects</a>
-                            </li>
-                            <li class='nav-item'>
-                                <a class='nav-link' id='skill' href="" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent">Skills</a>
-                            </li>
-                            <li class='nav-item'>
-                                <a class='nav-link' id='awards' href='' data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent">Awards &amp; Certifications</a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </nav>
-        </div> 
-   
-        <div class='container-fluid m-0 p-0 z-3' style='min-height:1700px;'>     
-            <div id ='body' class='sticky-top' style='z-index:-1000;transform: translateZ(0);'></div>
-            <div id ="mainContentContainer" class='container-fluid px-5' >
-            </div>
-            <div class="container-fluid px-5">
-                <div class='row'>
-                    <div class='col-12'>
-                        <div class='card text-light primary-color bg-gradient py-3'>
-                            <div class='card-body'>
-                                <h2 class='card-title text-center'>
-                                    Leave a Message
-                                </h2>
-                                <hr />
-                                <h4 class='card-text text-center'>
-                                    Click the button below to open the Message Form.
-                                </h4>
-                                <div class='text-center my-5'>
-                                    <button class='btn btn-light btn-gradient text-center' type='button' data-bs-toggle='offcanvas' data-bs-target = '#offCanvasForm' aria-controls='offCanvasBottom'>
-                                        <h4 class=''>Open</h4>
-                                    </button>
-                                </div>
-                            </div>
+                <div class='offcanvas-body'>
+                    <form id='messageForm' class='row text-black px-3' method='POST' action='/message/' data-bs-theme='light'>
+                        {% csrf_token %}
+                        {{ f.as_table }}
+                        <div class='col m-0 p-0'>
+                            <button type='submit' class=' text-white btn btn-gradient primary-color my-1'><h5>Send Message</h5></button>
                         </div>
-                    </div>
-                    <div class='col-12' style='min-height:200px;'>
-                        
-                    </div>
+                    </form>
                 </div>
             </div>
-        </div>
-        <div class="container-fluid text-light fixed-bottom">
-            <div class='row'>
-                <div class='col z-0'></div>
-                <div class='col-9'>
-                    <div class='accordion' id='accordianAssistant'  data-bs-theme='dark'>
-                        <div class="accordion-item">
-                            <h2 class="accordion-header">
-                                <button class="accordion-button accordion-button-active-bg-none primary-color bg-gradient" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                    <h4>JessePiccione.info</h4>
-                                </button>
+            <div class='container-fluid m-0 p-0 z-3'>
+                <div class='row bg-black bg-gradient bg-opacity text-white m-0 p-0'style='--bs-bg-opacity:.85;'>
+                    <div class = 'col' >
+                        <div class='text-center'>
+                            <img class='rounded-profile m-3' style='min-height:250px; min-width:250px;' src="{% static 'img/resume_site_profile.jpg' %}"></img>
+                            <h1>
+                                Jesse Piccione
+                            </h1>
+                            <h2>
+                                Software Engineer
                             </h2>
-                            <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample" >
-                                <div class="accordion-body bg-white m-0 pe-0" data-bs-theme='light'>
-                                    <div id='assistantMessageRows' style='max-height:600px;overflow-y:scroll;overflow-x:hidden;' data-bs-theme='light'>
+                        </div>
+                    </div>
+                </div>
+            </div>    
+            <div class='container-fluid sticky-top m-0 p-0'>
+                <nav class='navbar navbar-expand-lg primary-color bg-gradient' data-bs-theme='dark'>
+                    <div class='container-fluid m-0'>
+                        <a class='navbar-brand mx-3'>JessePiccione.info</a>
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <div class='collapse navbar-collapse' id ='navbarSupportedContent'>
+                            <ul class="navbar-nav me-auto align-self-bottom">
+                                <li class='nav-item'>
+                                    <a class='nav-link active' id='home' href='' data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent">Home</a>
+                                </li>
+                                <li class='nav-item'>
+                                    <a class='nav-link' id='workexperience' href='' data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent">Experience</a>
+                                </li>
+                                <li class='nav-item'>
+                                    <a class='nav-link' id="education" href="" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent">Education</a>
+                                </li>
+                                <li class='nav-item'> 
+                                    <a class='nav-link' id='projects' href="" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent">Projects</a>
+                                </li>
+                                <li class='nav-item'>
+                                    <a class='nav-link' id='skill' href="" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent">Skills</a>
+                                </li>
+                                <li class='nav-item'>
+                                    <a class='nav-link' id='awards' href='' data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent">Awards &amp; Certifications</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
+            </div> 
+            <div class='container-fluid m-0 p-0 z-3' style='min-height:70vh;'>     
+                <div id ="mainContentContainer" class='container-fluid' style=''></div>
+                <div class="container-fluid">
+                    <div class='row pt-3'>
+                        <div class='col-12'>
+                            <div class='card bg-light bg-opacity-75'>
+                                <div class='card-body'>
+                                    <h2 class='card-title text-center'>
+                                        Leave a Message
+                                    </h2>
+                                    <hr />
+                                    <h4 class='card-text text-center'>
+                                        Click the button below to open the Message Form.
+                                    </h4>
+                                    <div class='text-center my-3'>
+                                        <button class='btn primary-color btn-dark text-light btn-gradient text-center' type='button' data-bs-toggle='offcanvas' data-bs-target = '#offCanvasForm' aria-controls='offCanvasBottom'>
+                                            <h4 class=''>Open</h4>
+                                        </button>
                                     </div>
-                                    <hr/>
-                                    <form class='row' data-bs-theme='light' id='assistantForm'>
-                                        <div class='col-8'>
-                                            <input id='assistantMessage' type='text' class='form-control' placeholder='Ask a Question...'>
-                                        </div>
-                                        <div class='col-2'>
-                                            <button class='btn primary-color btn-gradient' data-bs-theme='dark'>Send</button>
-                                        </div>
-                                    </form>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class='row primary-color bg-gradient m-0 py-3'>
-                <div class='col-8 text-start m-0'>    
-                    Email: REDACTED@gmail.com
-                    <br />
-                    Phone: 732-908-0037
+            <div class="container-fluid text-light my-2 sticky-bottom">
+                <div class='row'>
+                    <div class='col z-0'></div>
+                    <div class='col-12 col-xxl-2'>
+                        <div class='accordion'  style=''id='accordianAssistant'  data-bs-theme='dark'>
+                            <div class="accordion-item">
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button collapsed primary-color bg-gradient" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-controls="collapseOne">
+                                        <strong>AI Assistant</strong>
+                                    </button>
+                                </h2>
+                                <div id="collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionExample" >
+                                    <div class="accordion-body bg-white m-0 pe-0" data-bs-theme='light'>
+                                        <div id='assistantMessageRows' style='max-height:75vh;overflow-y:scroll;overflow-x:hidden;' data-bs-theme='light'>
+                                        </div>
+                                        <hr/>
+                                        <form class='row' data-bs-theme='light' id='assistantForm'>
+                                            <div class='col-8'>
+                                                <input id='assistantMessage' type='text' class='form-control' placeholder='Ask a Question...'>
+                                            </div>
+                                            <div class='col-2'>
+                                                <button class='btn primary-color btn-gradient' data-bs-theme='dark'>Send</button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class='col-4 text-end m-0 px-3'>
-                    <a class='text-white text-decoration-none' href='https://www.linkedin.com/in/jesse-piccione'>
-                        LinkedIn <i class="fa-brands fa-linkedin"></i>
-                    </a>
-                    <br />
-                    <a class='text-white text-decoration-none' href='https://www.facebook.com/jesse.piccione'>
-                        Facebook <i class='fa-brands fa-facebook'></i>
-                    </a>
-                    <br />
-                    <a class='text-white text-decoration-none' href='https://github.com/JessePiccione'>
-                        Github <i class='fa-brands fa-github'></i>
-                    </a>
+            </div>
+            <div class=" m-0 p-0 container-fluid text-light">
+                <div class='row primary-color bg-gradient m-0 py-3 px-0'>
+                    <div class='col-6 text-start m-0' style='overflow:none;'>
+                        <p>Email:<br>REDACTED@gmail.com
+                        <br>    
+                        Phone:<br>732-908-0037</p>
+                    </div>
+                    <div class='col-6 text-end m-0 px-3'>
+                        <a class='text-white text-decoration-none' href='https://www.linkedin.com/in/jesse-piccione'>
+                            LinkedIn <i class="fa-brands fa-linkedin"></i>
+                        </a>
+                        <br />
+                        <a class='text-white text-decoration-none' href='https://www.facebook.com/jesse.piccione'>
+                            Facebook <i class='fa-brands fa-facebook'></i>
+                        </a>
+                        <br />
+                        <a class='text-white text-decoration-none' href='https://github.com/JessePiccione'>
+                            Github <i class='fa-brands fa-github'></i>
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -165,19 +174,19 @@
     
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
     <script src="https://kit.fontawesome.com/4877586813.js" crossorigin="anonymous"></script>
-    <script src= {% static 'js\Script.js' %}></script>
+    <script src= {% static 'js/Script.js' %}></script>
     <script>
         VANTA.NET({
           el: "#body",
           mouseControls: true,
           touchControls: window.innerWidth > 768,
-          gyroControls: false,
-          minHeight: window.innerHeight+100,
+          gyroControls: false,   
+          minHeight: window.innerHeight*1.20,   
           minWidth: 200.00,
           scale: 1.0,
           scaleMobile: 1.00,
           color: 0x000031,
-          backgroundColor: 0xffffff,
+          backgroundColor: 0xf2f2f2,
           points: (window.innerWidth > 768)? 20:12,
           maxDistance: 30,
           spacing: 30,

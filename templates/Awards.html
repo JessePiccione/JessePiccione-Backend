@@ -1,12 +1,12 @@
 {% if objects%}
-<div class='row'>
+<div class='row pt-3'>
     <div class='col-12'>
-        <div class='card primary-color bg-gradient text-light my-4'>
-            <h2 class='card-title text-center m-3 p-3 mb-0'>
-                Awards &amp; Certifications
-                <hr class='mb-0' />
-            </h2>
-            <div class='card-body m-3 mt-0'>
+        <div class='card bg-light bg-opacity-75'>
+            <div class='card-body'>
+                <h2 class='card-title text-center'>
+                    Awards &amp; Certifications
+                    <hr />
+                </h2>
                 <ul class='list-group'> 
                     {% for a in objects %}
                         <li class='list-group-item list-group-item-action'>
