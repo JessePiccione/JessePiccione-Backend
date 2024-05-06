@@ -1,11 +1,11 @@
 <div class="row">
     {% for  entry in entries %}
-    <div class='col-12 col-xxl-4'>
-        <div class='card text-light primary-color bg-gradient'>
+    <div class='col-12 col-xxl-4 pt-3'>
+        <div class='card bg-white bg-opacity-75'>
             <div class='card-body'>
-                <h1 class='card-title text-center'>
+                <h2 class='card-title text-center'>
                     {{entry.title}}
-                </h1>
+                </h2>
                 <hr />
                 <div class='card'>
                     <div class='card-body'>
@@ -17,7 +17,7 @@
                     </div>
                 </div>
                 <div class="text-center">
-                    <button class='btn btn-light btn-gradient' type='button' data-bs-toggle='collapse' data-bs-target="#technologies_{{entry.id}}" aria-expanded='false' aria-controls="technologies">
+                    <button class='btn primary-color btn-dark text-light btn-gradient my-2' type='button' data-bs-toggle='collapse' data-bs-target="#technologies_{{entry.id}}" aria-expanded='false' aria-controls="technologies">
                         Technologies Used Here
                     </button>
                     <div class='collapse' id ="technologies_{{entry.id}}">

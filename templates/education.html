@@ -1,12 +1,12 @@
-<div class='row px-5'>
+<div class='row'>
     {% for e in objects %}
-    <div class='col-12 col-xxl-6'>
-        <div class='card primary-color bg-gradient text-white my-4'>
-            <h2 class='card-title m-3 p-3 mb-0 text-center'>
-                {{e.degree_type}}
-                <hr class='mb-0'/>
-            </h2>
-            <div class='card-body mt-0 m-3'>
+    <div class='col-12 col-xxl-6 pt-3'>
+        <div class='card bg-light bg-opacity-75'>
+            <div class='card-body'> 
+                <h2 class='card-title text-center'>
+                    {{e.degree_type}}
+                    <hr/>
+                </h2>
                 <ul class = 'list-group'>
                     <li class = 'list-group-item list-group-item-action'>
                         <h5>{{e.school_name}} - {{e.location}}</h5>
