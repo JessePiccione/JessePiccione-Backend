@@ -1,40 +1,48 @@
 steps:
+  # Build the Docker image
+  - name: 'gcr.io/cloud-builders/docker'
+    args: ['build', '-t', 'gcr.io/$PROJECT_ID/jessepiccione', '.']
+
+  # Push the image to Google Container Registry
+  - name: 'gcr.io/cloud-builders/docker'
+    args: ['push', 'gcr.io/$PROJECT_ID/jessepiccione']
+
+  # Create an instance template with the container
   - name: 'gcr.io/cloud-builders/gcloud'
-    entrypoint: 'bash'
     args:
-      - '-c'
-      - |
-        # Define the dynamic name part using the Cloud Build's BUILD_ID
-        TEMPLATE_NAME="instance-template-$BUILD_ID"
+      - 'compute'
+      - 'instance-templates'
+      - 'create-with-container'
+      - 'instance-template-$BUILD_ID'
+      - '--project=resumeapp-07281999'
+      - '--machine-type=e2-micro'
+      - '--network-interface=network=default,network-tier=PREMIUM'
+      - '--no-restart-on-failure'
+      - '--maintenance-policy=TERMINATE'
+      - '--provisioning-model=SPOT'
+      - '--instance-termination-action=STOP'
+      - '--service-account=42054122245-compute@developer.gserviceaccount.com'
+      - '--scopes=https://www.googleapis.com/auth/devstorage.read_only,https://www.googleapis.com/auth/logging.write,https://www.googleapis.com/auth/monitoring.write,https://www.googleapis.com/auth/servicecontrol,https://www.googleapis.com/auth/service.management.readonly,https://www.googleapis.com/auth/trace.append'
+      - '--tags=allow-health-check'
+      - '--container-image=gcr.io/$PROJECT_ID/jessepiccione'
+      - '--container-restart-policy=always'
+      - '--create-disk=auto-delete=yes,boot=yes,device-name=instance-template-$BUILD_ID,image=projects/cos-cloud/global/images/cos-stable-113-18244-1-61,mode=rw,size=10,type=pd-balanced'
+      - '--no-shielded-secure-boot'
+      - '--shielded-vtpm'
+      - '--shielded-integrity-monitoring'
+      - '--labels=container-vm=cos-stable-113-18244-1-61'
 
-        # Command to create an instance template with a container
-        gcloud compute instance-templates create-with-container $$TEMPLATE_NAME \
-            --project=resumeapp-07281999 \
-            --machine-type=e2-micro \
-            --network-interface=network=default,network-tier=PREMIUM \
-            --no-restart-on-failure \
-            --maintenance-policy=TERMINATE \
-            --provisioning-model=SPOT \
-            --instance-termination-action=STOP \
-            --service-account=42054122245-compute@developer.gserviceaccount.com \
-            --scopes=https://www.googleapis.com/auth/devstorage.read_only,https://www.googleapis.com/auth/logging.write,https://www.googleapis.com/auth/monitoring.write,https://www.googleapis.com/auth/servicecontrol,https://www.googleapis.com/auth/service.management.readonly,https://www.googleapis.com/auth/trace.append \
-            --tags=allow-health-check \
-            --container-image=gcr.io/resumeapp-07281999/jessepiccione \
-            --container-restart-policy=always \
-            --create-disk=auto-delete=yes,boot=yes,device-name=$$TEMPLATE_NAME,image=projects/cos-cloud/global/images/cos-stable-113-18244-1-61,mode=rw,size=10,type=pd-balanced \
-            --no-shielded-secure-boot \
-            --shielded-vtpm \
-            --shielded-integrity-monitoring \
-            --labels=container-vm=cos-stable-113-18244-1-61
+  # Update the instance group to use the new template
+  - name: 'gcr.io/cloud-builders/gcloud'
+    args:
+      - 'compute'
+      - 'instance-groups'
+      - 'managed'
+      - 'set-instance-template'
+      - 'main-site-instance-group'
+      - '--template=instance-template-$BUILD_ID'
+      - '--zone=us-east1-b'
+      - '--project=resumeapp-07281999'
 
-        echo "New instance template created: $$TEMPLATE_NAME"
-
-        # Update the instance group with the new instance template
-        gcloud compute instance-groups managed set-instance-template main-site-instance-group \
-            --template $$TEMPLATE_NAME \
-            --zone us-east1-b \
-            --project resumeapp-07281999
-        
-        echo "Instance group has been updated with new template: $$TEMPLATE_NAME"
-
-timeout: '1200s' # Adjust the timeout as needed
+images:
+  - 'gcr.io/$PROJECT_ID/jessepiccione'
