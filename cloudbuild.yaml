@@ -45,6 +45,3 @@ steps:
       - '--template=instance-template-$BUILD_ID'
       - '--zone=us-east1-b'
       - '--project=resumeapp-07281999'
-
-images:
-  - 'gcr.io/$PROJECT_ID/REDACTED'
