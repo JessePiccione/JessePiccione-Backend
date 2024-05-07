@@ -30,7 +30,7 @@ steps:
         echo "New instance template created: $$TEMPLATE_NAME"
 
         # Update the instance group with the new instance template
-        gcloud compute instance-groups managed set-instance-template $$INSTANCE_GROUP \
+        gcloud compute instance-groups managed set-instance-template main-site-instance-group \
             --template $$TEMPLATE_NAME \
             --zone us-east1-b \
             --project resumeapp-07281999
