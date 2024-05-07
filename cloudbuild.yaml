@@ -37,17 +37,16 @@ steps:
 
 
   # Update the instance group to use the new template
-- name: 'gcr.io/cloud-builders/gcloud'
-    args:
-      - 'compute'
-      - 'instance-groups'
-      - 'managed'
-      - 'set-instance-template'
-      - 'main-site-instance-group'
-      - '--template=instance-template-$BUILD_ID'
-      - '--zone=us-east1-b'
-      - '--project=resumeapp-07281999'
-
+  - name: 'gcr.io/cloud-builders/gcloud'
+      args:
+        - 'compute'
+        - 'instance-groups'
+        - 'managed'
+        - 'set-instance-template'
+        - 'main-site-instance-group'
+        - '--template=instance-template-$BUILD_ID'
+        - '--zone=us-east1-b'
+        - '--project=resumeapp-07281999'
 
 images:
   - 'gcr.io/$PROJECT_ID/jessepiccione'
