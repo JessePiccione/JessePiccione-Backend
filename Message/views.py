@@ -1,10 +1,10 @@
 from django.core.exceptions import ValidationError
 from django.views import View
-from twilio.rest import Client 
+#from twilio.rest import Client 
 from django.http import HttpResponse
 from Resume.views import index
 from .forms import MessageForm
-from .twiliocreds import *
+#from .twiliocreds import *
 
 # Create your views here.
 class MessageView(View):
