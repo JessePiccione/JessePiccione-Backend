@@ -1,5 +1,3 @@
-env:
-  PROJECT_ID: resumeapp-07281999
 
 steps:
   # Build the Docker image
@@ -49,4 +47,4 @@ steps:
       - '--project=resumeapp-07281999'
 
 images:
-  - 'gcr.io/$PROJECT_ID/jessepiccione'
+  - 'gcr.io/resumeapp-07281999/jessepiccione'
