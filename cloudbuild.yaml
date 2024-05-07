@@ -47,4 +47,4 @@ steps:
       - '--project=resumeapp-07281999'
 
 images:
-  - 'gcr.io/$project_id/REDACTED'
+  - 'gcr.io/$PROJECT_ID/REDACTED'
