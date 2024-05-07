@@ -27,7 +27,7 @@ steps:
       - '--tags=allow-health-check' 
       - '--container-image=gcr.io/$PROJECT_ID/REDACTED:$BUILD_ID'
       - '--container-restart-policy=always'
-      - '--create-disk=auto-delete=yes,boot=yes,device-name=instance-template-2,image=projects/cos-cloud/global/images/cos-stable-113-18244-1-61,mode=rw,size=10,type=pd-balanced'
+      - '--create-disk=auto-delete=yes,device-name=instance-template-2,image=projects/cos-cloud/global/images/cos-stable-113-18244-1-61,mode=rw,size=10,type=pd-balanced'
       - '--no-shielded-secure-boot' 
       - '--shielded-vtpm'
       - '--shielded-integrity-monitoring'
