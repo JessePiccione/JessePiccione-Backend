@@ -11,8 +11,8 @@ steps:
   # Create an instance template with the container
   - name: 'gcr.io/cloud-builders/gcloud'
     args:
-      - 'compute'
-      - 'instance-templates'
+      - 'compute' 
+      - 'instance-templates' 
       - 'create-with-container'
       - 'instance-template-$BUILD_ID'
       - '--project=resumeapp-07281999'
@@ -20,16 +20,18 @@ steps:
       - '--network-interface=network=default,network-tier=PREMIUM'
       - '--no-restart-on-failure'
       - '--maintenance-policy=TERMINATE'
+      - '--provisioning-model=SPOT'
+      - '--instance-termination-action=STOP'
       - '--service-account=42054122245-compute@developer.gserviceaccount.com'
       - '--scopes=https://www.googleapis.com/auth/devstorage.read_only,https://www.googleapis.com/auth/logging.write,https://www.googleapis.com/auth/monitoring.write,https://www.googleapis.com/auth/servicecontrol,https://www.googleapis.com/auth/service.management.readonly,https://www.googleapis.com/auth/trace.append'
       - '--tags=allow-health-check'
-      - '--container-image=gcr.io/$PROJECT_ID/REDACTED:$BUILD_ID'
-      - '--container-restart-policy=always'
+      - '--container-image=gcr.io/resumeapp-07281999/REDACTED:$BUILD_ID'
+      - '--container-restart-policy=always' 
+      - '--create-disk=auto-delete=yes,boot=yes,device-name=instance-template-d,image=projects/cos-cloud/global/images/cos-stable-113-18244-1-61,mode=rw,size=10,type=pd-balanced'
       - '--no-shielded-secure-boot'
-      - '--shielded-vtpm'
+      - '--shielded-vtpm' 
       - '--shielded-integrity-monitoring'
       - '--labels=container-vm=cos-stable-113-18244-1-61'
-
 
   # Update the instance group to use the new template
   - name: 'gcr.io/cloud-builders/gcloud'
