@@ -1,13 +1,12 @@
 <div class='row'>
     {% for e in objects %}
     <div class='col-12 col-xxl-6 pt-3'>
-        <div class='card bg-light bg-opacity-75'>
+        <div class='card bg-white bg-opacity-75 shadow-sm'>
             <div class='card-body'> 
-                <h2 class='card-title text-center'>
+                <h2 class='card-title text-center shadow-sm  rounded p-3'>
                     {{e.degree_type}}
-                    <hr/>
                 </h2>
-                <ul class = 'list-group'>
+                <ul class = 'list-group shadow-sm p-2'>
                     <li class = 'list-group-item list-group-item-action'>
                         <h5>{{e.school_name}} - {{e.location}}</h5>
                     </li>
