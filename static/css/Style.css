@@ -1,3 +1,12 @@
+.navbar-brand:hover, button:hover, img.rounded-profile:hover, h1:hover, h2:hover, h3:hover, h4:hover, h5:hover, p.card-text:hover {
+    transform:scale3D(1.025,1.025,1.025);
+    transition:0.4s;     
+}
+li.list-group-item-action:hover{
+    border-radius:5px;
+    transform:scale3D(1.003125,1.025,1.025);
+    transition:0.4s;
+}
 img.rounded-profile {
     border-radius:50%;
 }

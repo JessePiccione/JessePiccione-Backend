@@ -3,9 +3,13 @@
     <div class='col-12 col-xxl-4 pt-3'>
         <div class='card bg-white bg-opacity-75 shadow-sm'>
             <div class='card-body'>
-                <h2 class='card-title text-center shadow-sm rounded p-3'>
-                    {{entry.title}}
-                </h2>
+                
+                <div class='shadow-sm rounded' >
+                    <h2 class='text-center p-3'>
+                        {{entry.title}}
+                    </h2>
+                </div>
+            
                 <div class='card bg-white bg-opacity-75 border border-0 shadow-sm'>
                     <div class='card-body'>
                         <p class='card-text text-center'>
@@ -20,7 +24,7 @@
                         Technologies Used Here
                     </button>
                     <div class='collapse' id ="technologies_{{entry.id}}">
-                        <ul class='list-group shadow-sm p-2 rounded my-2'>
+                        <ul class='list-group shadow-sm p-2 rounded mb-2'>
                             {% for tech in technologies %}
                             {%if tech.pageEntry.title == entry.title %}
                             <li class='list-group-item list-group-item-action'>

@@ -3,20 +3,22 @@
         <div class='col-12  col-xxl-6 pt-3'>
             <div class='card bg-white shadow-sm bg-opacity-75'>
                 <div class='card-body'>
-                    <h2 class='card-title text-center shadow-sm rounded p-3'>
-                        {{p.name}}
-                    </h2>
+                    <div class="shadow-sm rounded">
+                        <h2 class='card-title text-center p-3'>
+                            {{p.name}}
+                        </h2>
+                    </div>
                     <ul class='list-group shadow-sm rounded p-2'>
                         <li class='list-group-item list-group-item-action'>
-                            <h5 class='card-text'>
+                            <b class='card-text'>
                                 {{p.sponser}}
-                            </h5>
+                            </b>
                             
                         </li>
                         <li class='list-group-item list-group-item-action'>
-                            <h6 class='card-text'>
+                            <b class='card-text'>
                                 {{p.start_date}} - {{p.end_date}}
-                            </h6>
+                            </b>
                         </li>
                         <li class='list-group-item list-group-item-action'>
                                 <i>{{p.contribution}}</i>
