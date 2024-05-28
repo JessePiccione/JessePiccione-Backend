@@ -38,7 +38,7 @@
                         {% csrf_token %}
                         {{ f.as_table }}
                         <div class='col m-0 p-0'>
-                            <button type='submit' class=' text-white btn btn-gradient primary-color my-1'><h5>Send Message</h5></button>
+                            <button type='submit' class='text-white btn btn-dark btn-gradient primary-color my-1'><h5>Send Message</h5></button>
                         </div>
                     </form>
                 </div>
@@ -97,9 +97,11 @@
                         <div class='col-12'>
                             <div class='card bg-white bg-gradient bg-opacity-75 shadw-sm'>
                                 <div class='card-body'>
-                                    <h2 class='card-title text-center shadow-sm rounded p-3'>
-                                        Leave a Message
-                                    </h2>
+                                    <div class='shadow-sm rounded'>
+                                        <h2 class='card-title text-center  p-3'>
+                                            Leave a Message
+                                        </h2>
+                                    </div>
                                     <div class='shadow-sm rounded p-2'>
                                         <p class='card-text text-center'>
                                             Click the button below to open the Message Form.
@@ -110,8 +112,6 @@
                                             </button>
                                         </div>
                                     </div>
-                                    
-                                    
                                 </div>
                             </div>
                         </div>
@@ -139,7 +139,7 @@
                                                 <input id='assistantMessage' type='text' class='form-control' placeholder='Ask a Question...'>
                                             </div>
                                             <div class='col-2'>
-                                                <button class='btn primary-color btn-gradient' data-bs-theme='dark'>Send</button>
+                                                <button class='btn btn-dark primary-color btn-gradient' data-bs-theme='dark'>Send</button>
                                             </div>
                                         </form>
                                     </div>
@@ -152,9 +152,9 @@
             <div class=" m-0 p-0 container-fluid text-light">
                 <div class='row primary-color bg-gradient m-0 py-3 px-0'>
                     <div class='col-6 text-start m-0' style='overflow:none;'>
-                        <p>Email:<br>jessepiccione@gmail.com
+                        <p style='font-size:0.90em'>Email: jessepiccione@gmail.com
                         <br>    
-                        Phone:<br>732-908-0037</p>
+                        Phone: 732-908-0037</p>
                     </div>
                     <div class='col-6 text-end m-0 px-3'>
                         <a class='text-white text-decoration-none' href='https://www.linkedin.com/in/jesse-piccione'>
@@ -187,7 +187,7 @@
           gyroControls: false,   
           minHeight: window.innerHeight*1.20,   
           minWidth: 200.00,
-          scale: 1.0,
+          scale: 1.1,
           scaleMobile: 1.00,
           color: 0x000031,
           backgroundColor: 0xffffff,

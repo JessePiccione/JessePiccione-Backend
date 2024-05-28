@@ -3,16 +3,18 @@
         <div class='col-12 col-xxl-4 pt-3'>
             <div class = 'card bg-white bg-opacity-75 shadow-sm'>
                 <div class='card-body'>
-                    <h2 class='card-title text-center shadow-sm p-3 rounded'>
+                    <div class='shadow-sm rounded'>
+                        <h2 class='card-title text-center p-3'>
                         {{entry}}
                     </h2>
-                    <ul class='list-group shadow-sm p-2'>
-                        {% for s in skills %}
-                            <li class='list-group-item list-group-item-action'>
-                                <h6>{{s.name}}</h6>
-                            </li>                      
-                        {% endfor %}
-                    </ul>
+                </div>
+                <ul class='list-group shadow-sm p-2'>
+                    {% for s in skills %}
+                        <li class='list-group-item list-group-item-action'>
+                            <b>{{s.name}}</b>
+                        </li>                      
+                    {% endfor %}
+                </ul>
                 </div>
             </div>
         </div>
