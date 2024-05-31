@@ -24,12 +24,18 @@ async function loadViewName(event, name){
          }   
         }
     );
-    const main = get("#mainContentContainer").innerHTML = await req.text()
+    const main = get("#mainContentContainer");
+    main.classList.add('transitionOut')
+    await wait(500);
+    main.innerHTML = await req.text()
+    main.classList.remove('transitionOut')
+    main.classList.add("transitionIn")
+    await wait(500);
     getAll('.active').forEach((element)=>{
         element.classList.remove('active');
     })
     get('#'+name).classList.add('active')
-    
+    main.classList.remove('transitionIn')
     event.preventDefault()
 }
 //script to communicate with GPT Assistant Model.
