@@ -27,11 +27,11 @@ async function loadViewName(event, name){
     );
     const main = get("#mainContentContainer");
     main.classList.add('transitionOut')
-    await wait(500);
+    await wait(750);
     main.innerHTML = await req.text()
     main.classList.remove('transitionOut')
     main.classList.add("transitionIn")
-    await wait(500);
+    await wait(750);
     getAll('.active').forEach((element)=>{
         element.classList.remove('active');
     })
