@@ -16,6 +16,7 @@ async function loadDOM(event){
     loadAssistant(event);
 }
 async function loadViewName(event, name){
+    window.scrollTo({top:0,behavior: 'smooth'});
     const req = await fetch("/"+name+'/',
         {
          method:'POST',
