@@ -24,7 +24,8 @@ SECRET_KEY = secret_key_var
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 ALLOWED_HOSTS = ["*"]
-CSRF_TRUSTED_ORIGINS = ['https://www.REDACTED.info', 'https://REDACTED.info']
+CSRF_TRUSTED_ORIGINS = ['https://www.REDACTED.info', 'https://REDACTED.info', 'http://localhost:3000','http://localhost:8080','https://resumeapp-07281999.wn.r.appspot.com']
+CORS_ALLOWED_ORIGINS = ['https://www.REDACTED.info', 'https://REDACTED.info', 'http://localhost:3000','http://localhost:8080','https://resumeapp-07281999.wn.r.appspot.com']
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
 # HTTPS MODE
@@ -53,6 +54,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'rest_framework.authtoken',
     'djoser',
+    'corsheaders',
     'ResumeAPI.apps.ResumeapiConfig',
 ]
 
@@ -60,6 +62,7 @@ INSTALLED_APPS = [
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',

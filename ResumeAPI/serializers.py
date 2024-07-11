@@ -5,6 +5,7 @@ from WorkExperience.models import WorkExperience
 from Message.models import Message
 from Skills.models import Skill, SkillCategory
 from Projects.models import Project 
+from Resume.models import HomePageEntry, Technology
 from django.contrib.auth.models import User
 
 class AwardSerializer(serializers.ModelSerializer):
@@ -32,7 +33,17 @@ class SkillCategorySerializer(serializers.ModelSerializer):
     class Meta:
         model = SkillCategory 
         fields = '__all__'
+
 class ProjectSerializer(serializers.ModelSerializer):
     class Meta:
         model = Project
+        fields = '__all__'
+class TechnologySerializer(serializers.ModelSerializer):
+    pageEntry = HomePageEntry()
+    class Meta:
+        model = Technology
+        fields = '__all__'
+class HomePageEntrySerializer(serializers.ModelSerializer):
+    class Meta:
+        model = HomePageEntry
         fields = '__all__'

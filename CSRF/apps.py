@@ -1,4 +1,6 @@
 from django.apps import AppConfig
-class ResumeapiConfig(AppConfig):
+
+
+class CsrfConfig(AppConfig):
     default_auto_field = 'django.db.models.BigAutoField'
-    name = 'ResumeAPI'
+    name = 'CSRF'

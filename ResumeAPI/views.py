@@ -58,4 +58,18 @@ class ProjectListView(generics.ListAPIView):
 class ProjectDetailsView(generics.RetrieveAPIView):
     queryset = Project.objects.all()
     serializer_class = ProjectSerializer
-    
+
+class HomePageEntryListView(generics.ListAPIView):
+    queryset = HomePageEntry.objects.all()
+    serializer_class = HomePageEntrySerializer
+class HomePageEntryDetailsView(generics.RetrieveAPIView):
+    queryset = HomePageEntry.objects.all()
+    serializer_class = HomePageEntrySerializer 
+
+
+class TechnologyListView(generics.ListAPIView):
+    queryset = Technology.objects.all()
+    serializer_class = TechnologySerializer
+class TechnologyDetailsView(generics.RetrieveAPIView):
+    queryset = Technology.objects.all()
+    serializer_class = TechnologySerializer

@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.http import JsonResponse
-from django.views import View 
+from rest_framework.views import APIView 
 from openai import OpenAI
 from .creds import *
 from time import sleep
@@ -8,7 +8,7 @@ from datetime import datetime
 from json import loads
 # Create your views here.
 client = OpenAI(api_key=OPENAI_API_KEY)
-class AssistantMessageView(View):
+class AssistantMessageView(APIView):
     def post(self, request):
         body = loads(request.body.decode())
         thread=client.beta.threads.create()

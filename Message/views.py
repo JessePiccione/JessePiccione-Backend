@@ -2,12 +2,15 @@ from django.core.exceptions import ValidationError
 from django.views import View
 #from twilio.rest import Client 
 from django.http import HttpResponse
-from Resume.views import index
+from django.shortcuts import render
 from .forms import MessageForm
+from rest_framework.views import APIView
 #from .twiliocreds import *
 
-# Create your views here.
-class MessageView(View):
+# Create your views here
+class MessageView(APIView):
+    def get(self, request):
+        return HttpResponse(MessageForm().as_table())
     def post(self, request):
         f = MessageForm(request.POST)
         print (request.POST)
