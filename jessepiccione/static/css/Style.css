@@ -1,0 +1,117 @@
+.transitionIn{
+    animation:in .75s ease; 
+}
+@keyframes in {
+    0%{
+        transform:translateX(60vw) rotateZ(-1deg) rotateY(-100deg) ;
+        opacity:0;
+    }
+    100%{
+        transform: translateX(0vw) rotateY(0deg) rotateZ(0deg);
+        opacity:1;
+    }
+}
+.transitionOut{
+    animation: out .75s ease;
+}
+@keyframes out{
+    0%{
+        transform:translateX(0vw) rotateY(0deg) rotate(0deg);
+        opacity:1;
+    }
+    100%{ 
+        transform:translateX(-60vw) rotateY(100deg) rotateZ(-1deg);
+        opacity:0;
+    }
+}
+.navbar-brand:hover, button:hover, img.rounded-profile:hover, h1:hover, h2:hover, h3:hover, h4:hover, h5:hover, p.card-text:hover {
+    transform:scale3D(1.025,1.025,1.025);
+    transition:0.4s;     
+}
+li.list-group-item-action:hover{
+    border-radius:5px;
+    transform:scale3D(1.003125,1.025,1.025);
+    transition:0.4s;
+}
+img.rounded-profile {
+    border-radius:50%;
+}
+.primary-color{
+    background-color: #000031;
+
+}
+.secondary-color{
+    background-color:rgb(44, 44, 44)
+}
+
+.flippy-letters > p {
+    display:inline-flex;
+    flex-direction:row;
+    margin:0 0;
+    padding:0 0;
+    transition:.5s;
+}
+.initial-flip p:nth-child(even){
+    animation: rotateY .5s linear;
+}
+.initial-flip p:nth-child(odd){
+    animation: rotateX .5s linear;
+}
+.flippy-letters:hover p:nth-child(even) {
+    animation: rotateY .5s linear;
+}
+.flippy-letters:hover p:nth-child(odd) {
+    animation: rotateX .5s linear;
+}
+
+.zippy-letters > p{
+    display:inline-flex;
+    flex-direction:row;
+}
+.initial-zip p:nth-child(1n){
+    animation: translateY 0.5s ease-out;
+    animation-fill-mode: forwards;
+}
+.initial-zip p:nth-child(2n){
+    animation: translateX 0.5s ease-out;
+    animation-fill-mode: forwards;
+}
+.zippy-letters:hover p:nth-child(1n){
+    animation: translateY 0.5s ease-out;
+}
+.zippy-letters:hover p:nth-child(2n){
+    animation: translateX 0.5s ease-out;
+}
+@keyframes rotateY {
+    0%{
+        transform:rotateY(0deg);
+    }
+    100%{
+        transform:rotateY(360deg)
+    }
+
+}
+@keyframes rotateX {
+    0%{
+        transform:rotateX(0deg);
+    }
+    100%{
+        transform:rotateX(360deg);
+    }
+}
+@keyframes translateY{
+    0%{
+        transform:translateY(-100vh);
+    }
+    100%{
+        transform:translateY(0vh);
+    }
+}
+@keyframes translateX{
+    0%{
+        transform:translateX(100vw);
+    }
+    100%{
+        transform:translateX(0vw);
+    }
+}
