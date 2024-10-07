@@ -24,8 +24,14 @@ SECRET_KEY = secret_key_var
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 ALLOWED_HOSTS = ["*"]
-CSRF_TRUSTED_ORIGINS = ['https://www.REDACTED.info', 'https://REDACTED.info', 'http://localhost:3000','http://localhost:8000','https://resumeapp-07281999.wn.r.appspot.com','https://symmetrical-acorn-465wg64vpjwh5566-3000.app.github.dev','https://vigilant-space-carnival-465wg64v9j927qxj-8080.app.github.dev']
-CORS_ALLOWED_ORIGINS = ['https://www.REDACTED.info', 'https://REDACTED.info', 'http://localhost:3000','http://localhost:8000','https://resumeapp-07281999.wn.r.appspot.com','https://symmetrical-acorn-465wg64vpjwh5566-3000.app.github.dev','https://vigilant-space-carnival-465wg64v9j927qxj-8080.app.github.dev']
+CORS_ALLOWED_ORIGINS = CSRF_TRUSTED_ORIGINS = ['https://www.REDACTED.info',
+                        'https://REDACTED.info', 
+                        'http://localhost:3000',
+                        'http://localhost:8080',
+                        'https://resumeapp-07281999.wn.r.appspot.com',
+                        'https://literate-space-enigma-6wq4rw6577rfrr4j-8080.app.github.dev',
+                        'https://obscure-waddle-4955p5gqwqh5g75-3000.app.github.dev',
+                        ]
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
 # HTTPS MODE
