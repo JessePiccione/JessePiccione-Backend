@@ -1,8 +1,9 @@
 django
+certifi
 twilio
 pyopenssl
 openai
 djangorestframework
 djoser
-mysqlclient
-django-cors-headers
+mysqlclient==2.2.4
+
