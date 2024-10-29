@@ -12,6 +12,7 @@ class Technology(models.Model):
     description = models.TextField(max_length=255)
     pageEntry = models.ForeignKey(
         HomePageEntry,
+        related_name='technologies',
         on_delete=models.CASCADE
     )
     def __str__(self):

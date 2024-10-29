@@ -66,7 +66,6 @@ class HomePageEntryDetailsView(generics.RetrieveAPIView):
     queryset = HomePageEntry.objects.all()
     serializer_class = HomePageEntrySerializer 
 
-
 class TechnologyListView(generics.ListAPIView):
     queryset = Technology.objects.all()
     serializer_class = TechnologySerializer

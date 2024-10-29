@@ -9,6 +9,7 @@ class Skill(models.Model):
     name = models.CharField(max_length=100)
     category = models.ForeignKey(
         SkillCategory,
+        related_name='skills',
         on_delete = models.PROTECT
     )
     def __str__(self):
