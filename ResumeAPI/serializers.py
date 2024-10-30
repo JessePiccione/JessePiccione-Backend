@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from Awards.models import Award
+from Awards.models import Award, AwardCategory
 from Education.models import Education
 from WorkExperience.models import WorkExperience
 from Message.models import Message
@@ -9,6 +9,11 @@ from Resume.models import HomePageEntry, Technology
 class AwardSerializer(serializers.ModelSerializer):
     class Meta:
         model = Award 
+        fields = '__all__'
+class AwardCategorySerializer(serializers.ModelSerializer):
+    awards = AwardSerializer(read_only=True, many=True)
+    class Meta:
+        model = AwardCategory
         fields = '__all__'
 class EducationSerializer(serializers.ModelSerializer):
     class Meta:
