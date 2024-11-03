@@ -4,7 +4,13 @@ from rest_framework import generics
 from .serializers import *
 from .permissions import IsAdminUser
 from rest_framework.permissions import IsAuthenticated
-# Create your views here.
+class AwardCategoryListView(generics.ListAPIView):
+    queryset = AwardCategory.objects.all()
+    serializer_class = AwardCategorySerializer
+class AwardCategoryDetailsView(generics.RetrieveAPIView):
+    queryset = AwardCategory.objects.all()
+    serializer_class = AwardCategorySerializer
+    
 class AwardListView(generics.ListAPIView):
     queryset = Award.objects.all()
     serializer_class = AwardSerializer

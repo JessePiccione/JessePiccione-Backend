@@ -2,7 +2,9 @@ from django.urls import path
 from .views import *
 urlpatterns = [
     path('award/', AwardListView.as_view()),
-    path('award/<int:pk>', AwardDetailsView.as_view()),
+    path('award/<int:pk>/', AwardDetailsView.as_view()),
+    path('award/category/', AwardCategoryListView.as_view()),
+    path('award/category/<int:pk>/', AwardCategoryDetailsView.as_view()),
     path('education/', EducationListView.as_view()),
     path('education/<int:pk>/',EducationDetailsView.as_view()),
     path('work/experience/', WorkExperienceListView.as_view()),
