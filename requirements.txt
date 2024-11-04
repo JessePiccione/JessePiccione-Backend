@@ -7,3 +7,4 @@ djangorestframework
 djoser
 mysqlclient==2.2.4
 django-cors-headers
+gunicorn

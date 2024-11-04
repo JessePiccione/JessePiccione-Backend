@@ -25,16 +25,12 @@ CORS_ALLOWED_ORIGINS = ['https://www.REDACTED.info',
                         'http://localhost:3000',
                         'http://localhost:8080',
                         'https://resumeapp-07281999.wn.r.appspot.com',
-                        'https://literate-space-enigma-6wq4rw6577rfrr4j-8080.app.github.dev',
-                        'https://obscure-waddle-4955p5gqwqh5g75-3000.app.github.dev',
                         ]
 CSRF_TRUSTED_ORIGINS = ['https://www.REDACTED.info',
                         'https://REDACTED.info', 
                         'http://localhost:3000',
                         'http://localhost:8080',
                         'https://resumeapp-07281999.wn.r.appspot.com',
-                        'https://literate-space-enigma-6wq4rw6577rfrr4j-8080.app.github.dev',
-                        'https://obscure-waddle-4955p5gqwqh5g75-3000.app.github.dev',
                         ]
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 # HTTPS MODE
@@ -138,4 +134,10 @@ REST_FRAMEWORK = {
     "DEFAULT_AUTHENTICATION_CLASSES":[
         'rest_framework.authentication.TokenAuthentication',  
     ]
+}
+CACHEs = {
+    "default":{
+        "BACKEND":"django.core.cache.backends.db.DatabaseCache",
+        "LOCATION":"backend_mysql_cache",
+    }
 }

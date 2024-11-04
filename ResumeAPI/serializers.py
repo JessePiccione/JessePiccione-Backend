@@ -7,6 +7,7 @@ from Skills.models import Skill, SkillCategory
 from Projects.models import Project 
 from Resume.models import HomePageEntry, Technology
 class AwardSerializer(serializers.ModelSerializer):
+    category = AwardCategory()
     class Meta:
         model = Award 
         fields = '__all__'
