@@ -20,7 +20,8 @@ SECRET_KEY = secret_key_var
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 ALLOWED_HOSTS = ["*"]
-CORS_ALLOWED_ORIGINS = ['https://www.REDACTED.info',
+CORS_ALLOWED_ORIGINS = [
+                        'https://www.REDACTED.info',
                         'https://REDACTED.info', 
                         'http://localhost:3000',
                         'http://localhost:8080',
@@ -68,6 +69,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
 ROOT_URLCONF = 'JessePiccione.urls'
 TEMPLATES = [
@@ -122,10 +124,10 @@ USE_I18N = True
 USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
-STATIC_ROOT = 'REDACTED/static/'
+STATIC_ROOT = 'static/'
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [
-    BASE_DIR / 'static'
+    'JessePiccione/static/'
 ]
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
