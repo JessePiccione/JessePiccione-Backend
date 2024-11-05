@@ -39,15 +39,6 @@ SESSION_COOKIE_SECURE = False
 CSRF_COOKIE_SECURE = False
 # Application definition
 INSTALLED_APPS = [
-    'JessePiccioneAssistant.apps.JessepiccioneassistantConfig',
-    'Message.apps.MessageConfig',
-    'Awards.apps.AwardsConfig',
-    'Projects.apps.ProjectsConfig',
-    'Skills.apps.SkillsConfig',
-    'Education.apps.EducationConfig',
-    'WorkExperience.apps.WorkexperienceConfig',
-    'Resume.apps.ResumeConfig',
-    'ResumeAPI.apps.ResumeapiConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -58,6 +49,15 @@ INSTALLED_APPS = [
     'rest_framework.authtoken',
     'djoser',
     'corsheaders',
+    'JessePiccioneAssistant.apps.JessepiccioneassistantConfig',
+    'Message.apps.MessageConfig',
+    'Awards.apps.AwardsConfig',
+    'Projects.apps.ProjectsConfig',
+    'Skills.apps.SkillsConfig',
+    'Education.apps.EducationConfig',
+    'WorkExperience.apps.WorkexperienceConfig',
+    'Resume.apps.ResumeConfig',
+    'ResumeAPI.apps.ResumeapiConfig',
 ]
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -135,7 +135,7 @@ REST_FRAMEWORK = {
         'rest_framework.authentication.TokenAuthentication',  
     ]
 }
-CACHEs = {
+CACHES = {
     "default":{
         "BACKEND":"django.core.cache.backends.db.DatabaseCache",
         "LOCATION":"backend_mysql_cache",

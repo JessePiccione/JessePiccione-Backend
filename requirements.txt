@@ -1,6 +1,4 @@
 django
-certifi
-twilio
 pyopenssl
 openai
 djangorestframework
