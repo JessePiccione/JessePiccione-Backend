@@ -9,16 +9,19 @@ https://docs.djangoproject.com/en/5.0/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.0/ref/settings/
 """
+import os
+from dotenv import load_dotenv
 from pathlib import Path
 from .keys import *
+load_dotenv()
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = secret_key_var
+SECRET_KEY = os.getenv('secret_key_var')
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = os.getenv('DEBUG_MODE')
 ALLOWED_HOSTS = ["*"]
 CORS_ALLOWED_ORIGINS = [
                         'https://www.REDACTED.info',
@@ -92,12 +95,12 @@ WSGI_APPLICATION = 'JessePiccione.wsgi.application'
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 DATABASES = {
     'default': {
-        'ENGINE': 'REDACTED',
-        'NAME': 'REDACTED',
-        'HOST':'REDACTED',
-        'PORT':'REDACTED',
-        'USER':secret_db_creds['user'],
-        'PASSWORD':secret_db_creds['password'],
+        'ENGINE': os.getenv('DATABASE_ENGINE'),
+        'NAME': os.getenv('DATABASE_NAME'),
+        'HOST': os.getenv('DATABASE_HOST'),
+        'PORT': os.getenv('DATABASE_PORT'),
+        'USER': os.getenv('DATABASE_USERNAME'),
+        'PASSWORD': os.getenv('DATABASE_PASSWORD'),
     }
 }
 # Password validation
