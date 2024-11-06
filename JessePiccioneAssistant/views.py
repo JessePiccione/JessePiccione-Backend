@@ -6,8 +6,10 @@ from .creds import *
 from time import sleep
 from datetime import datetime
 from json import loads
+import os
+
 # Create your views here.
-client = OpenAI(api_key=OPENAI_API_KEY)
+client = OpenAI(api_key=os.getenv('OPENAI_API_KEY'))
 class AssistantMessageView(APIView):
     def post(self, request):
         body = loads(request.body.decode())
