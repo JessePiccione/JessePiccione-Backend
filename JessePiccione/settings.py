@@ -18,7 +18,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.getenv('secret_key_var')
+SECRET_KEY = os.getenv('SECRET_KEY_VAR')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 ALLOWED_HOSTS = ["*"]
@@ -29,7 +29,8 @@ CORS_ALLOWED_ORIGINS = [
                         'http://localhost:8080',
                         'https://resumeapp-07281999.wn.r.appspot.com',
                         ]
-CSRF_TRUSTED_ORIGINS = ['https://www.REDACTED.info',
+CSRF_TRUSTED_ORIGINS = [
+                        'https://www.REDACTED.info',
                         'https://REDACTED.info', 
                         'http://localhost:3000',
                         'http://localhost:8080',
@@ -102,6 +103,8 @@ DATABASES = {
         'PASSWORD': os.getenv('DATABASE_PASSWORD'),
     }
 }
+
+
 # Password validation
 # https://docs.djangoproject.com/en/5.0/ref/settings/#auth-password-validators
 AUTH_PASSWORD_VALIDATORS = [

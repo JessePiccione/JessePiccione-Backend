@@ -1,5 +1,14 @@
 runtime: python312
 entrypoint: gunicorn JessePiccione.wsgi:application --bind 0.0.0.0:8080
+env_variables:
+  DATABASE_ENGINE: 'REDACTED'
+  DATABASE_NAME: 'REDACTED'
+  DATABASE_HOST: 'REDACTED'
+  DATABASE_PORT: 'REDACTED'
+  DATABASE_USERNAME: 'REDACTED'
+  DATABASE_PASSWORD: 'REDACTED'
+  SECRET_KEY_VAR: 'REDACTED'
+  OPENAI_API_KEY: 'REDACTED'
 automatic_scaling:
   target_cpu_utilization: 0.65
   min_instances: 1

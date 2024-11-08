@@ -15,5 +15,7 @@
 
 # Python pycache:
 __pycache__/
+/tests.py 
+/__init__.py 
 # Ignored by the build system
 /setup.cfg
