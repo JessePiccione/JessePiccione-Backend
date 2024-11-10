@@ -1,5 +1,5 @@
 @media (prefers-color-scheme: dark) {
-    :REDACTED {
+    :root {
       --primary: #264b5d;
       --primary-fg: #f7f7f7;
   

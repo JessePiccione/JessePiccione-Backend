@@ -4,7 +4,7 @@
 
 /* VARIABLE DEFINITIONS */
 html[data-theme="light"],
-:REDACTED {
+:root {
     --primary: #79aec8;
     --secondary: #417690;
     --accent: #f5dd5d;

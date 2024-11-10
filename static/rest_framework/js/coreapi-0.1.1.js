@@ -1391,13 +1391,13 @@ module.exports = function lolcation(loc) {
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
 
 },{"./":19}],21:[function(require,module,exports){
-(function (REDACTED, factory) {
+(function (root, factory) {
     if (typeof exports === 'object') {
         module.exports = factory();
     } else if (typeof define === 'function' && define.amd) {
         define([], factory);
     } else {
-        REDACTED.urltemplate = factory();
+        root.urltemplate = factory();
     }
 }(this, function () {
   /**

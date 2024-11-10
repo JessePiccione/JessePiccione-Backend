@@ -11,7 +11,7 @@
     define(['jquery'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // Node/CommonJS
-    module.exports = function (REDACTED, jQuery) {
+    module.exports = function (root, jQuery) {
       if (jQuery === undefined) {
         // require('jQuery') returns a factory that requires window to
         // build a jQuery instance, we normalize how we use modules
@@ -21,7 +21,7 @@
           jQuery = require('jquery');
         }
         else {
-          jQuery = require('jquery')(REDACTED);
+          jQuery = require('jquery')(root);
         }
       }
       factory(jQuery);
