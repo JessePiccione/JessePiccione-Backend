@@ -879,7 +879,7 @@ function find( selector, context, results, seed ) {
 				newSelector = selector;
 				newContext = context;
 
-				// qSA considers elements outside a scoping REDACTED when evaluating child or
+				// qSA considers elements outside a scoping root when evaluating child or
 				// descendant combinators, which is not what we want.
 				// In such cases, we work around the behavior by prefixing every selector in the
 				// list with an ID selector referencing the scope context.
@@ -1933,7 +1933,7 @@ Expr = jQuery.expr = {
 			return hash && hash.slice( 1 ) === elem.id;
 		},
 
-		REDACTED: function( elem ) {
+		root: function( elem ) {
 			return elem === documentElement;
 		},
 
@@ -2848,8 +2848,8 @@ jQuery.fn.extend( {
 // Initialize a jQuery object
 
 
-// A central reference to the REDACTED jQuery(document)
-var REDACTEDjQuery,
+// A central reference to the root jQuery(document)
+var rootjQuery,
 
 	// A simple way to check for HTML strings
 	// Prioritize #id over <tag> to avoid XSS via location.hash (trac-9521)
@@ -2857,7 +2857,7 @@ var REDACTEDjQuery,
 	// Shortcut simple #id case for speed
 	rquickExpr = /^(?:\s*(<[\w\W]+>)[^>]*|#([\w-]+))$/,
 
-	init = jQuery.fn.init = function( selector, context, REDACTED ) {
+	init = jQuery.fn.init = function( selector, context, root ) {
 		var match, elem;
 
 		// HANDLE: $(""), $(null), $(undefined), $(false)
@@ -2865,9 +2865,9 @@ var REDACTEDjQuery,
 			return this;
 		}
 
-		// Method init() accepts an alternate REDACTEDjQuery
+		// Method init() accepts an alternate rootjQuery
 		// so migrate can support jQuery.sub (gh-2101)
-		REDACTED = REDACTED || REDACTEDjQuery;
+		root = root || rootjQuery;
 
 		// Handle HTML strings
 		if ( typeof selector === "string" ) {
@@ -2929,7 +2929,7 @@ var REDACTEDjQuery,
 
 			// HANDLE: $(expr, $(...))
 			} else if ( !context || context.jquery ) {
-				return ( context || REDACTED ).find( selector );
+				return ( context || root ).find( selector );
 
 			// HANDLE: $(expr, context)
 			// (which is just equivalent to: $(context).find(expr)
@@ -2946,8 +2946,8 @@ var REDACTEDjQuery,
 		// HANDLE: $(function)
 		// Shortcut for document ready
 		} else if ( isFunction( selector ) ) {
-			return REDACTED.ready !== undefined ?
-				REDACTED.ready( selector ) :
+			return root.ready !== undefined ?
+				root.ready( selector ) :
 
 				// Execute immediately if ready is not present
 				selector( jQuery );
@@ -2960,7 +2960,7 @@ var REDACTEDjQuery,
 init.prototype = jQuery.fn;
 
 // Initialize central reference
-REDACTEDjQuery = jQuery( document );
+rootjQuery = jQuery( document );
 
 
 var rparentsprev = /^(?:parents|prev(?:Until|All))/,
@@ -10370,7 +10370,7 @@ jQuery.fn.extend( {
 		} else {
 			offset = this.offset();
 
-			// Account for the *real* offset parent, which can be the document or its REDACTED element
+			// Account for the *real* offset parent, which can be the document or its root element
 			// when a statically positioned element is identified
 			doc = elem.ownerDocument;
 			offsetParent = elem.offsetParent || doc.documentElement;

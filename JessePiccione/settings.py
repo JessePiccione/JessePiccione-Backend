@@ -23,18 +23,14 @@ SECRET_KEY = os.getenv('SECRET_KEY_VAR')
 DEBUG = False
 ALLOWED_HOSTS = ["*"]
 CORS_ALLOWED_ORIGINS = [
-                        'https://www.REDACTED.info',
-                        'https://REDACTED.info', 
-                        'http://localhost:3000',
-                        'http://localhost:8080',
-                        'https://resumeapp-07281999.wn.r.appspot.com',
+                        'https://jessepiccione-info-backend.ue.r.appspot.com',
+                        'https://www.jessepiccione.info',
+                        'https://jessepiccione.info', 
                         ]
 CSRF_TRUSTED_ORIGINS = [
-                        'https://www.REDACTED.info',
-                        'https://REDACTED.info', 
-                        'http://localhost:3000',
-                        'http://localhost:8080',
-                        'https://resumeapp-07281999.wn.r.appspot.com',
+                        'https://jessepiccione-info-backend.ue.r.appspot.com',
+                        'https://www.jessepiccione.info',
+                        'https://jessepiccione.info', 
                         ]
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 # HTTPS MODE
