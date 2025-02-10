@@ -22,12 +22,12 @@ SECRET_KEY = os.getenv('SECRET_KEY_VAR')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 ALLOWED_HOSTS = ["*"]
-CORS_ALLOWED_ORIGINS = [
+CORS_ALLOWED_ORIGINS = ['https://obscure-waddle-4955p5gqwqh5g75-8080.app.github.dev',
                         'https://jessepiccione-info-backend.ue.r.appspot.com',
                         'https://www.jessepiccione.info',
                         'https://jessepiccione.info', 
                         ]
-CSRF_TRUSTED_ORIGINS = [
+CSRF_TRUSTED_ORIGINS = ['https://obscure-waddle-4955p5gqwqh5g75-8080.app.github.dev',
                         'https://jessepiccione-info-backend.ue.r.appspot.com',
                         'https://www.jessepiccione.info',
                         'https://jessepiccione.info', 

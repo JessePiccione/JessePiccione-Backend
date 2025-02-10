@@ -32,7 +32,6 @@ class AssistantMessageView(APIView):
                 thread_id = thread.id,
                 run_id = run.id
             )
-            sleep(1)
         messages = client.beta.threads.messages.list(
             thread_id = thread.id
         )
