@@ -9,9 +9,10 @@ from json import loads
 import os
 
 # Create your views here.
-client = OpenAI(api_key=os.getenv('OPENAI_API_KEY'))
+
 class AssistantMessageView(APIView):
     def post(self, request):
+        client = OpenAI(api_key=os.getenv('OPENAI_API_KEY'))
         body = loads(request.body.decode())
         thread=client.beta.threads.create()
         message=client.beta.threads.messages.create(
@@ -32,6 +33,7 @@ class AssistantMessageView(APIView):
                 thread_id = thread.id,
                 run_id = run.id
             )
+            sleep(0.5)
         messages = client.beta.threads.messages.list(
             thread_id = thread.id
         )
