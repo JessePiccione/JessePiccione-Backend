@@ -34,7 +34,6 @@ CSRF_TRUSTED_ORIGINS = ['https://obscure-waddle-4955p5gqwqh5g75-8080.app.github.
                         ]
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 # HTTPS MODE
-CORS_ALLOW_CREDENTIALS=True
 SECURE_SSL_REDIRECT = False
 SESSION_COOKIE_SECURE = False 
 CSRF_COOKIE_SECURE = False
