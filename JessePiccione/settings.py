@@ -34,11 +34,13 @@ CSRF_TRUSTED_ORIGINS = ['https://obscure-waddle-4955p5gqwqh5g75-8080.app.github.
                         ]
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 # HTTPS MODE
+CORS_ALLOW_CREDENTIALS=True
 SECURE_SSL_REDIRECT = False
 SESSION_COOKIE_SECURE = False 
 CSRF_COOKIE_SECURE = False
 # Application definition
 INSTALLED_APPS = [
+    'corsheaders',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -48,7 +50,6 @@ INSTALLED_APPS = [
     'rest_framework',
     'rest_framework.authtoken',
     'djoser',
-    'corsheaders',
     'JessePiccioneAssistant.apps.JessepiccioneassistantConfig',
     'Message.apps.MessageConfig',
     'Awards.apps.AwardsConfig',
@@ -60,11 +61,11 @@ INSTALLED_APPS = [
     'ResumeAPI.apps.ResumeapiConfig',
 ]
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
-    'corsheaders.middleware.CorsMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
