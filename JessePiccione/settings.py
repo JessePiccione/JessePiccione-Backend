@@ -38,7 +38,8 @@ CORS_ALLOWED_ORIGINS = [
                         'https://jessepiccione-info-backend.ue.r.appspot.com',
                         'https://www.jessepiccione.info',
                         'https://jessepiccione.info', 
-                        'https://piccione.dev'
+                        'https://piccione.dev',
+                        'https://portal.piccione.dev'
                         ]
 CSRF_TRUSTED_ORIGINS = [
                         'http://localhost:3000',
@@ -46,7 +47,8 @@ CSRF_TRUSTED_ORIGINS = [
                         'https://jessepiccione-info-backend.ue.r.appspot.com',
                         'https://www.jessepiccione.info',
                         'https://jessepiccione.info', 
-                        'https://piccione.dev'
+                        'https://piccione.dev',
+                        'https://portal.piccione.dev'
                         ]
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 # HTTPS MODE
