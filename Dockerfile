@@ -1,5 +1,5 @@
 
-FROM python:latest
+FROM python:3.12
 
 # Create and set the working directory
 RUN mkdir /JessePiccione
