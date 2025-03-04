@@ -1,24 +1,17 @@
 
-FROM python:3.12
+FROM python
 
-# Create and set the working directory
-RUN mkdir /JessePiccione
-WORKDIR /JessePiccione
+WORKDIR /app
 
-# Update the package list and install the MySQL development library
-RUN apt-get update && apt-get install -y default-libmysqlclient-dev build-essential
-
-
-# Copy the Pipfile and Pipfile.lock into the image
-COPY requirements.txt /JessePiccione
+COPY requirements.txt ./
 
 # Install the Python dependencies
 RUN pip install -r requirements.txt
-
+# Update the package list and install the MySQL development libraryRUN apt-get update && apt-get install -y default-libmysqlclient-dev build-essential
+# Copy the Pipfile and Pipfile.lock into the image
 # Copy the rest of your application's code into the image
 COPY . .
-
 EXPOSE 8000
 # Run your application
-ENTRYPOINT ["gunicorn", "JessePiccione.wsgi:application"]
+ENTRYPOINT ["gunicorn", "JessePiccione.wsgi:application" '-b' '0.0.0.0:8000']
 
