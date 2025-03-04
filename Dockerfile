@@ -1,9 +1,6 @@
 
 FROM python:latest
 
-# Set environment variables
-ENV PYTHONUNBUFFERED=1
-
 # Create and set the working directory
 RUN mkdir /JessePiccione
 WORKDIR /JessePiccione
@@ -19,7 +16,7 @@ COPY requirements.txt /JessePiccione
 RUN pip install -r requirements.txt
 
 # Copy the rest of your application's code into the image
-COPY . /JessePiccione/
+COPY . .
 
 EXPOSE 8000
 # Run your application
