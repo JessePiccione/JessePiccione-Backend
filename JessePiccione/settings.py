@@ -27,8 +27,6 @@ DBNAME=CLIENT.access_secret_version(request={'name':'projects/piccione-dev/secre
 DBHOST=CLIENT.access_secret_version(request={'name':'projects/piccione-dev/secrets/DATABASE_HOST/versions/latest'}).payload.data.decode('utf-8')
 DBPORT=CLIENT.access_secret_version(request={'name':'projects/piccione-dev/secrets/DATABASE_PORT/versions/latest'}).payload.data.decode('utf-8')
 DBUSER=CLIENT.access_secret_version(request={'name':'projects/piccione-dev/secrets/DATABASE_USERNAME/versions/latest'}).payload.data.decode('utf-8')
-DBPASSWORD=CLIENT.access_secret_version(request={'name':'projects/piccione-dev/secrets/DATABASE_PASSWORD/versions/latest'}).payload.data.decode('utf-8')
-
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 ALLOWED_HOSTS = ["*"]

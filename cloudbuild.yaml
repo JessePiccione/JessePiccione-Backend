@@ -7,4 +7,4 @@ steps:
   args: ['push', 'gcr.io/piccione-dev/portal:$BUILD_ID']
 - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
   entrypoint: 'gcloud'
-  args: ['run', 'deploy', 'portal-piccione-dev', '--region', 'us-east1', --image, 'gcr.io/piccione-dev/portal:$BUILD_ID']
+  args: ['run', 'deploy', 'portal-piccione-dev', '--region', 'us-east1', '--image', 'gcr.io/piccione-dev/portal:$BUILD_ID']
