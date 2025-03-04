@@ -2,7 +2,7 @@
 FROM python:latest
 
 # Set environment variables
-ENV PYTHONUNBUFFERED 1
+ENV PYTHONUNBUFFERED=1
 
 # Create and set the working directory
 RUN mkdir /JessePiccione
@@ -23,5 +23,5 @@ COPY . /JessePiccione/
 
 EXPOSE 8000
 # Run your application
-ENTRYPOINT gunicorn JessePiccione.wsgi:application
+ENTRYPOINT ["gunicorn", "JessePiccione.wsgi:application"]
 
