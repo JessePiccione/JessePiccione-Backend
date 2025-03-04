@@ -12,15 +12,25 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 import os
 from dotenv import load_dotenv
 from pathlib import Path
-load_dotenv()
+from google.cloud import secretmanager
+CLIENT = secretmanager.SecretManagerServiceClient()
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.getenv('SECRET_KEY_VAR')
+SECRET_KEY = CLIENT.access_secret_version(request={'name':'projects/piccione-dev/secrets/SECRET_KEY_VAR/versions/latest'}).payload.data.decode('utf-8')
+OPENAI_API_KEY = CLIENT.access_secret_version(request={'name':'projects/piccione-dev/secrets/OPENAI_API_KEY/versions/latest'}).payload.data.decode('utf-8')
+
+DBENGINE=CLIENT.access_secret_version(request={'name':'projects/piccione-dev/secrets/DATABASE_ENGINE/versions/latest'}).payload.data.decode('utf-8')
+DBNAME=CLIENT.access_secret_version(request={'name':'projects/piccione-dev/secrets/DATABASE_NAME/versions/latest'}).payload.data.decode('utf-8')
+DBHOST=CLIENT.access_secret_version(request={'name':'projects/piccione-dev/secrets/DATABASE_HOST/versions/latest'}).payload.data.decode('utf-8')
+DBPORT=CLIENT.access_secret_version(request={'name':'projects/piccione-dev/secrets/DATABASE_PORT/versions/latest'}).payload.data.decode('utf-8')
+DBUSER=CLIENT.access_secret_version(request={'name':'projects/piccione-dev/secrets/DATABASE_USERNAME/versions/latest'}).payload.data.decode('utf-8')
+DBPASSWORD=CLIENT.access_secret_version(request={'name':'projects/piccione-dev/secrets/DATABASE_PASSWORD/versions/latest'}).payload.data.decode('utf-8')
+
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 ALLOWED_HOSTS = ["*"]
 CORS_ALLOWED_ORIGINS = [
                         'http://localhost:3000',
@@ -96,12 +106,12 @@ WSGI_APPLICATION = 'JessePiccione.wsgi.application'
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 DATABASES = {
     'default': {
-        'ENGINE': os.getenv('DATABASE_ENGINE'),
-        'NAME': os.getenv('DATABASE_NAME'),
-        'HOST': os.getenv('DATABASE_HOST'),
-        'PORT': os.getenv('DATABASE_PORT'),
-        'USER': os.getenv('DATABASE_USERNAME'),
-        'PASSWORD': os.getenv('DATABASE_PASSWORD'),
+        'ENGINE': DBENGINE,
+        'NAME': DBNAME,
+        'HOST': DBHOST,
+        'PORT': DBPORT, 
+        'USER': DBUSER,
+        'PASSWORD': DBPASSWORD,
     }
 }
 

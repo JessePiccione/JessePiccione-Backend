@@ -1,18 +1,17 @@
-from django.shortcuts import render
 from django.http import JsonResponse
 from rest_framework.views import APIView 
 from openai import OpenAI
-from .creds import *
 from time import sleep
 from datetime import datetime
 from json import loads
+from JessePiccione.settings import OPENAI_API_KEY
 import os
 
 # Create your views here.
 
 class AssistantMessageView(APIView):
     def post(self, request):
-        client = OpenAI(api_key=os.getenv('OPENAI_API_KEY'))
+        client = OpenAI(api_key=OPENAI_API_KEY)
         body = loads(request.body.decode())
         thread=client.beta.threads.create()
         message=client.beta.threads.messages.create(

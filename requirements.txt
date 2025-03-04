@@ -8,3 +8,4 @@ django-cors-headers
 gunicorn
 whitenoise
 python-dotenv 
+google-cloud-secret-manager
