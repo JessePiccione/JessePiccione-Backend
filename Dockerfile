@@ -12,15 +12,14 @@ WORKDIR /JessePiccione
 RUN apt-get update && apt-get install -y default-libmysqlclient-dev build-essential
 
 # Ins
-
 # Copy the Pipfile and Pipfile.lock into the image
 COPY requirements.txt /JessePiccione/
-
+RUN python -m venv .
 # Install the Python dependencies
 RUN pip install -r requirements.txt
 
 # Copy the rest of your application's code into the image
 COPY . /JessePiccione/
-
+ENV GOOGLE_APPLICATION_CREDENTIALS='/JessePiccione/adc.json'
 # Run your application
-CMD ["gunicorn", "JessePiccione.wsgi:application", "--b=0.0.0.0:8000"]
+CMD ["gunicorn", "JessePiccione.wsgi:application", "--bind=0.0.0.0:8000"]
