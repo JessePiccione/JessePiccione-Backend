@@ -23,4 +23,4 @@ RUN pip install -r requirements.txt
 COPY . /JessePiccione/
 
 # Run your application
-CMD ["gunicorn", "JessePiccione.wsgi:application", "-b 0.0.0.0:8000"]
+CMD ["gunicorn", "JessePiccione.wsgi:application", "--b=0.0.0.0:8000"]
