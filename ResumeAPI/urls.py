@@ -10,8 +10,6 @@ urlpatterns = [
     path('work/experience/', WorkExperienceListView.as_view()),
     path('work/experience/<int:pk>/', WorkExperienceDetailsView.as_view()),
     path('message/', MessageCreateView.as_view()),
-    path('message/', MessageListView.as_view()),
-    path('message/<int:pk>/', MessageDetailsView.as_view()),
     path('skill/', SkillListView.as_view()),
     path('skill/<int:pk>/', SkillDetailsView.as_view()),
     path('skill/category/', SkillCategoryListView.as_view()),

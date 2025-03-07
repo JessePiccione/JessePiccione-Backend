@@ -31,12 +31,26 @@ DBUSER=CLIENT.access_secret_version(request={'name':'projects/piccione-dev/secre
 DBPASSWORD=CLIENT.access_secret_version(request={'name':'projects/piccione-dev/secrets/DATABASE_PASSWORD/versions/latest'}).payload.data.decode('utf-8')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 ALLOWED_HOSTS = ["*"]
+CORS_ALLOW_METHODS = [
+    'DELETE',
+    'GET',
+    'OPTIONS',
+    'PATCH',
+    'POST',
+    'PUT',
+]
+CORS_ALLOW_HEADERS = [
+    'accept',
+    'Authorization',
+    'Content-Type',
+    'origin',
+    'x-csrftoken',
+]
+CORS_ALLOW_CREDENTIALS=False
 CORS_ALLOWED_ORIGINS = [
                         'http://localhost:3000',
-                        'http://localhost:8000',
-                        'https://jessepiccione-info-backend.ue.r.appspot.com',
                         'https://www.jessepiccione.info',
                         'https://jessepiccione.info', 
                         'https://piccione.dev',
@@ -44,8 +58,6 @@ CORS_ALLOWED_ORIGINS = [
                         ]
 CSRF_TRUSTED_ORIGINS = [
                         'http://localhost:3000',
-                        'http://localhost:8000',
-                        'https://jessepiccione-info-backend.ue.r.appspot.com',
                         'https://www.jessepiccione.info',
                         'https://jessepiccione.info', 
                         'https://piccione.dev',
@@ -55,7 +67,7 @@ SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 # HTTPS MODE
 SECURE_SSL_REDIRECT = False
 SESSION_COOKIE_SECURE = False 
-CSRF_COOKIE_SECURE = False
+CSRF_COOKIE_SECURE = True
 # Application definition
 INSTALLED_APPS = [
     'corsheaders',
@@ -79,6 +91,7 @@ INSTALLED_APPS = [
     'ResumeAPI.apps.ResumeapiConfig',
 ]
 MIDDLEWARE = [
+    'django.middleware.csrf.CsrfViewMiddleware',
     'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
