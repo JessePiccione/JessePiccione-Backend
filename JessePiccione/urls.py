@@ -19,8 +19,7 @@ from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('', include('Resume.urls')),
+    path('', admin.site.urls),
     path('education/', include('Education.urls')),
     path('projects/', include('Projects.urls')),
     path('skill/', include('Skills.urls')),
