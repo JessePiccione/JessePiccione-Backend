@@ -15,12 +15,30 @@ steps:
     - us-east1
     - --image
     - gcr.io/piccione-dev/portal:$BUILD_ID
-    - --set-secrets
-    - SECRET_KEY_VAR=SECRET_KEY_VAR
-    - OPENAI_API_KEY=OPENAI_API_KEY
-    - DATABASE_ENGINE=DATABASE_ENGINE
-    - DATABASE_HOST=DATABASE_HOST
-    - DATABASE_NAME=DATABASE_NAME
-    - DATABASE_PORT=DATABASE_PORT
-    - DATABASE_USERNAME=DATABASE_USERNAME
-    - DATABASE_PASSWORD=DATABASE_PASSWORD
+  secretEnv:
+    - SECRET_KEY_VAR
+    - OPENAI_API_KEY
+    - DATABASE_ENGINE
+    - DATABASE_HOST
+    - DATABASE_NAME
+    - DATABASE_PORT
+    - DATABASE_USERNAME
+    - DATABASE_PASSWORD
+availableSecrets:
+  SecretManager:
+    - versionName: 'projects/piccione-dev/secrets/SECRET_KEY_VAR/versions/latest'
+      env: 'SECRET_KEY_VAR'
+    - versionName: 'projects/piccione-dev/secrets/OPENAI_API_KEY/versions/latest'
+      env: 'OPENAI_API_KEY'
+    - versionName: 'projects/piccione-dev/secrets/DATABASE_ENGINE/versions/latest'
+      env: 'DATABASE_ENGINE'
+    - versionName: 'projects/piccione-dev/secrets/DATABASE_HOST/versions/latest'
+      env: 'DATABASE_HOST'
+    - versionName: 'projects/piccione-dev/secrets/DATABASE_NAME/versions/latest'
+      env: 'DATABASE_NAME'
+    - versionName: 'projects/piccione-dev/secrets/DATABASE_PORT/versions/latest'
+      env: 'DATABASE_PORT'
+    - versionName: 'projects/piccione-dev/secrets/DATABASE_USERNAME/versions/latest'
+      env: 'DATABASE_USERNAME'
+    - versionName: 'projects/piccione-dev/secrets/DATABASE_PASSWORD/versions/latest'
+      env: 'DATABASE_PASSWORD'
