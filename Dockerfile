@@ -20,6 +20,5 @@ RUN pip install -r requirements.txt
 
 # Copy the rest of your application's code into the image
 COPY . /JessePiccione/
-ENV GOOGLE_APPLICATION_CREDENTIALS='/JessePiccione/adc.json'
 # Run your application
 CMD ["gunicorn", "JessePiccione.wsgi:application", "--bind=0.0.0.0:8000"]
