@@ -35,14 +35,14 @@ CORS_ALLOW_HEADERS = [
 ]
 CORS_ALLOW_CREDENTIALS=False
 CORS_ALLOWED_ORIGINS = [
-                        'http://localhost:3000',
+                        'http://localhost:8080',
                         'https://www.jessepiccione.info',
                         'https://jessepiccione.info', 
                         'https://piccione.dev',
                         'https://portal.piccione.dev'
                         ]
 CSRF_TRUSTED_ORIGINS = [
-                        'http://localhost:3000',
+                        'http://localhost:8080',
                         'https://www.jessepiccione.info',
                         'https://jessepiccione.info', 
                         'https://piccione.dev',
