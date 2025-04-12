@@ -3,7 +3,7 @@ pyopenssl
 openai
 djangorestframework
 djoser
-mysqlclient==2.2.4
+mysqlclient
 django-cors-headers
 gunicorn
 whitenoise

@@ -16,7 +16,7 @@ RUN apt-get update && apt-get install -y default-libmysqlclient-dev build-essent
 COPY requirements.txt /JessePiccione/
 RUN python -m venv .
 # Install the Python dependencies
-RUN pip install -r requirements.txt
+RUN pip install -r requirements.txt && python manage.py makemigrations && python manage.py migrate
 
 # Copy the rest of your application's code into the image
 COPY . /JessePiccione/
