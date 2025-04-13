@@ -5,8 +5,11 @@ steps:
   args: ['build', '.', '-t', 'gcr.io/piccione-dev/portal:$BUILD_ID']
 - name: 'gcr.io/cloud-builders/docker'
   args: ['push', 'gcr.io/piccione-dev/portal:$BUILD_ID']
-- name : 'pip'
+- name : 'python'
+  entrypoint: 'python'
   args:
+    - '-m'
+    - 'pip'
     - 'install'
     - 'django'
     - '&'
