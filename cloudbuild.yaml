@@ -12,12 +12,9 @@ steps:
     - 'pip'
     - 'install'
     - 'django'
-    - '&&'
-    - 'python'
-    - 'manage.py'
-    - 'makemigrations'
-    - '&&'
-    - 'python'
+- name: 'python'
+  entrypoint: 'python'
+  args:
     - 'manage.py'
     - 'migrate'
   secretEnv:
