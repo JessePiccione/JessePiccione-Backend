@@ -6,5 +6,6 @@ djoser
 mysqlclient
 django-cors-headers
 gunicorn
+uvicorn
 whitenoise
 python-dotenv 

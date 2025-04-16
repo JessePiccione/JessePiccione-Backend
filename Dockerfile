@@ -14,7 +14,6 @@ RUN apt-get update && apt-get install -y default-libmysqlclient-dev build-essent
 # Ins
 # Copy the Pipfile and Pipfile.lock into the image
 COPY requirements.txt /JessePiccione/
-RUN python -m venv .
 # Install the Python dependencies
 RUN pip install -r requirements.txt
 
