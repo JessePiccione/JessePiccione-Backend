@@ -67,7 +67,6 @@ INSTALLED_APPS = [
     'djoser',
     'JessePiccioneAssistant.apps.JessepiccioneassistantConfig',
     'Message.apps.MessageConfig',
-    'Awards.apps.AwardsConfig',
     'Projects.apps.ProjectsConfig',
     'Skills.apps.SkillsConfig',
     'Education.apps.EducationConfig',

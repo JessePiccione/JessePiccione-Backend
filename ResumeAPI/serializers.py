@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from Awards.models import Award, AwardCategory
+from .models import Award, AwardCategory
 from Education.models import Education
 from WorkExperience.models import WorkExperience
 from Message.models import Message

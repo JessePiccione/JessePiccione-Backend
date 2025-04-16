@@ -24,7 +24,6 @@ urlpatterns = [
     path('projects/', include('Projects.urls')),
     path('skill/', include('Skills.urls')),
     path('workexperience/', include('WorkExperience.urls')),
-    path('awards/', include('Awards.urls')),
     path('message/', include('Message.urls')),
     path('assistant/', include('JessePiccioneAssistant.urls')),
     path('api/', include('ResumeAPI.urls')),
