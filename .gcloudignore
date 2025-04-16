@@ -19,3 +19,4 @@ __pycache__/
 /__init__.py 
 # Ignored by the build system
 /setup.cfg
+.venv/

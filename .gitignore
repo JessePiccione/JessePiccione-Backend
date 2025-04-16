@@ -2,3 +2,4 @@ app.yaml
 __pycache__/
 adc.json
 .env
+.venv/
