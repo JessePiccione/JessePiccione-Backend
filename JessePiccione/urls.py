@@ -20,11 +20,6 @@ from django.conf import settings
 from django.conf.urls.static import static
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('education/', include('Education.urls')),
-    path('projects/', include('Projects.urls')),
-    path('skill/', include('Skills.urls')),
-    path('workexperience/', include('WorkExperience.urls')),
-    path('message/', include('Message.urls')),
     path('assistant/', include('JessePiccioneAssistant.urls')),
     path('api/', include('ResumeAPI.urls')),
     path('api/', include('djoser.urls')),
