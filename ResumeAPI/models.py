@@ -8,6 +8,7 @@ class AwardCategory(models.Model):
         return f"[{self.title}]"
     class Meta: 
         app_label = 'Awards'
+
 class Award(models.Model):
     title = models.CharField(max_length=100)
     year = models.IntegerField()
@@ -21,6 +22,7 @@ class Award(models.Model):
     class Meta: 
         app_label = 'Awards'
 
+
 class Education(models.Model):
     school_name = models.CharField(max_length=50)
     location  = models.CharField(max_length=100)
@@ -31,3 +33,18 @@ class Education(models.Model):
         return f'[{self.school_name}, {self.location}, {self.degree_type}, {self.start_date}, {self.end_date}]'
     class Meta:
         app_label = 'Education'
+# Create your models here.
+
+
+class Message(models.Model):
+    email = models.EmailField()
+    name = models.CharField(max_length=100)
+    phone = models.CharField(max_length=100, default='')
+    subject = models.CharField(max_length=255)
+    message = models.TextField()
+    def __str__(self):
+        return f'[{self.email}, {self.name}, {self.subject}, {self.message}]'
+    class Meta: 
+        app_label = 'Message'
+
+    

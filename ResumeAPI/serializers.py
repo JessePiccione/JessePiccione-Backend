@@ -1,7 +1,6 @@
 from rest_framework import serializers
-from .models import Award, AwardCategory, Education
+from .models import Award, AwardCategory, Education, Message
 from WorkExperience.models import WorkExperience
-from Message.models import Message
 from Skills.models import Skill, SkillCategory
 from Projects.models import Project
 from Resume.models import HomePageEntry, Technology
