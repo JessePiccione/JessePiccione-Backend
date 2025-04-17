@@ -22,4 +22,4 @@ COPY . /JessePiccione/
 # Copy the rest of your application's code into the image
 
 # Run your application
-CMD ["gunicorn", "JessePiccione.wsgi:application", "--bind=0.0.0.0:8000", "--workers", "4", "--threads", "2"]
+CMD ["uvicorn", "JessePiccione.asgi:application", "--bind=0.0.0.0:8000", "--workers", "8"]
