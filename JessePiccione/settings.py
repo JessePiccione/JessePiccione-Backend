@@ -16,7 +16,7 @@ DBPORT=os.getenv('DATABASE_PORT')
 DBUSER=os.getenv('DATABASE_USERNAME')
 DBPASSWORD=os.getenv('DATABASE_PASSWORD')
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 ALLOWED_HOSTS = ["*"]
 CORS_ALLOW_METHODS = [
     'DELETE',
