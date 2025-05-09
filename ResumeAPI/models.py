@@ -47,4 +47,64 @@ class Message(models.Model):
     class Meta: 
         app_label = 'Message'
 
-    
+class Project(models.Model):
+    name = models.CharField(max_length=100)
+    sponser = models.CharField(max_length=100)
+    start_date = models.DateField()
+    end_date = models.DateField()
+    contribution = models.CharField(max_length=1028)
+    def __str__(self):
+        return f'[{self.name}, {self.sponser}, {self.start_date}, {self.end_date}, {self.contribution}]'
+    class Meta:
+        app_label = 'Projects'
+
+class HomePageEntry(models.Model):
+    title = models.CharField(max_length=255)
+    description = models.TextField()
+    URL = models.URLField()
+    def __str__(self):
+        return self.title
+    class Meta: 
+        app_label = 'Resume'
+class Technology(models.Model):
+    title = models.CharField(max_length=255)
+    description = models.TextField(max_length=255)
+    pageEntry = models.ForeignKey(
+        HomePageEntry,
+        related_name='technologies',
+        on_delete=models.CASCADE
+    )
+    def __str__(self):
+        return self.title
+    class Meta: 
+        app_label='Resume'
+class SkillCategory(models.Model):
+    category_name = models.CharField(max_length=255)
+    def __str__(self):
+        return f'[{self.category_name}]'
+    class Meta:
+        app_label='Skills'
+class Skill(models.Model):
+    name = models.CharField(max_length=100)
+    category = models.ForeignKey(
+        SkillCategory,
+        related_name='skills',
+        on_delete = models.PROTECT
+    )
+    def __str__(self):
+        return f'[{self.name}, {self.category}]'
+    class Meta:
+        app_label='Skills'
+
+
+class WorkExperience(models.Model):
+    company_name = models.CharField(max_length=100)
+    location = models.CharField(max_length=100)
+    title_held = models.CharField(max_length=100)
+    start_date = models.DateField()
+    end_date = models.DateField()
+    description = models.CharField(max_length=511)
+    def __str__(self):
+        return f'[{self.company_name}, {self.location}, {self.title_held}, {self.start_date}, {self.end_date}, {self.description}]'
+    class Meta:
+        app_label = 'WorkExperience'

@@ -1,9 +1,5 @@
 from rest_framework import serializers
-from .models import Award, AwardCategory, Education, Message
-from WorkExperience.models import WorkExperience
-from Skills.models import Skill, SkillCategory
-from Projects.models import Project
-from Resume.models import HomePageEntry, Technology
+from .models import Award, AwardCategory, Education, Message, Project, HomePageEntry, Technology, Skill, SkillCategory, WorkExperience
 class AwardSerializer(serializers.ModelSerializer):
     category = AwardCategory()
     class Meta:

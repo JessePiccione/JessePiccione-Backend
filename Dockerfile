@@ -22,4 +22,4 @@ COPY . /JessePiccione/
 # Copy the rest of your application's code into the image
 
 # Run your application
-CMD ["uvicorn", "JessePiccione.asgi:application", "--bind=0.0.0.0:8000", "--workers", "8"]
+CMD ["uvicorn", "JessePiccione.asgi:application", "--host",  "0.0.0.0", "--port", "8000", "--workers", "8"]
