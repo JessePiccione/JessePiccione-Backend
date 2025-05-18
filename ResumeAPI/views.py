@@ -33,7 +33,7 @@ class WorkExperienceDetailsView(generics.RetrieveAPIView):
     serializer_class = WorkExperienceSerializer
 
 class MessageListView(generics.ListAPIView):
-    queyset = Message.objects.all()
+    queryset = Message.objects.all()
     serializer_class = MessageSerializer
     permission_classes = [IsAuthenticated, IsAdminUser]
 class MessageCreateView(generics.CreateAPIView):
