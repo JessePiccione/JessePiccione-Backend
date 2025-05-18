@@ -42,7 +42,7 @@ admin.site.register(Technology, TechnologyAdmin)
 class SkillCategoryAdmin(admin.ModelAdmin):
     list_display = ('id', 'category_name')
     search_fields = ('id', 'category_name')
-    list_filter = ('category_name')
+    list_filter = ('category_name',)
 admin.site.register(SkillCategory, SkillCategoryAdmin)
 class SkillAdmin(admin.ModelAdmin):
     list_display = ('id', 'name', 'category')
