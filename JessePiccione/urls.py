@@ -25,4 +25,4 @@ urlpatterns = [
     path('api/', include('ResumeAPI.urls')),
     path('api/', include('djoser.urls')),
     path('api/', include('djoser.urls.authtoken'))
-] + static(settings.STATIC_URL, document_REDACTED=settings.STATIC_ROOT)
+] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
