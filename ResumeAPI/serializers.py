@@ -1,8 +1,8 @@
 from rest_framework import serializers
 from .models import Award, AwardCategory, Education, Message, Project, HomePageEntry, Technology, Skill, SkillCategory, WorkExperience
-from .serializers import AwardCategorySerializer, SkillCategorySerializer, HomePageEntrySerializer
+
 class AwardSerializer(serializers.ModelSerializer):
-    category = AwardCategorySerializer(read_only=True)
+    category = AwardCategory()
     class Meta:
         model = Award 
         fields = '__all__'
@@ -24,7 +24,7 @@ class MessageSerializer(serializers.ModelSerializer):
         model = Message
         fields = '__all__' 
 class SkillSerializer(serializers.ModelSerializer):
-    category = SkillCategorySerializer(read_only=True)
+    category = SkillCategory()
     class Meta:
         model = Skill
         fields = '__all__'
@@ -38,7 +38,7 @@ class ProjectSerializer(serializers.ModelSerializer):
         model = Project
         fields = '__all__'
 class TechnologySerializer(serializers.ModelSerializer):
-    pageEntry = HomePageEntrySerializer(read_only=True)
+    pageEntry = HomePageEntry()
     class Meta:
         model = Technology
         fields = '__all__'
