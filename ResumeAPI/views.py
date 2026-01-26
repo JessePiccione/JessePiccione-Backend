@@ -4,6 +4,9 @@ from rest_framework import generics
 from .serializers import *
 from .permissions import IsAdminUser
 from rest_framework.permissions import IsAuthenticated
+from rest_framework.pagination import PageNumberPagination
+class SmallBlogPagePagination(PageNumberPagination):
+    page_size=3
 class AwardCategoryListView(generics.ListAPIView):
     queryset = AwardCategory.objects.all()
     serializer_class = AwardCategorySerializer
@@ -64,13 +67,17 @@ class ProjectListView(generics.ListAPIView):
 class ProjectDetailsView(generics.RetrieveAPIView):
     queryset = Project.objects.all()
     serializer_class = ProjectSerializer
-
+class HomePageEntryPaginationView(generics.ListAPIView):
+    queryset = HomePageEntry.objects.all()
+    serializer_class = HomePageEntrySerializer
+    pagination_class = SmallBlogPagePagination
 class HomePageEntryListView(generics.ListAPIView):
+    pagination_class = None
     queryset = HomePageEntry.objects.all()
     serializer_class = HomePageEntrySerializer
 class HomePageEntryDetailsView(generics.RetrieveAPIView):
     queryset = HomePageEntry.objects.all()
-    serializer_class = HomePageEntrySerializer 
+    serializer_class = HomePageEntrySerializer
 
 class TechnologyListView(generics.ListAPIView):
     queryset = Technology.objects.all()

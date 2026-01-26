@@ -1,12 +1,12 @@
 from django.db import models
-from datetime import datetime 
+from datetime import datetime
 class AwardCategory(models.Model):
     title = models.CharField(max_length=100)
     year = models.IntegerField(default=datetime.now().year, null=True, blank=True)
     issuer = models.CharField(max_length=255, null=True, blank=True)
     def __str__(self):
         return f"[{self.title}]"
-    class Meta: 
+    class Meta:
         app_label = 'Awards'
 
 class Award(models.Model):
@@ -19,7 +19,7 @@ class Award(models.Model):
     )
     def __str__(self):
         return f"[{self.title}, {self.year}]"
-    class Meta: 
+    class Meta:
         app_label = 'Awards'
 
 
@@ -44,7 +44,7 @@ class Message(models.Model):
     message = models.TextField()
     def __str__(self):
         return f'[{self.email}, {self.name}, {self.subject}, {self.message}]'
-    class Meta: 
+    class Meta:
         app_label = 'Message'
 
 class Project(models.Model):
@@ -62,10 +62,13 @@ class HomePageEntry(models.Model):
     title = models.CharField(max_length=255)
     description = models.TextField()
     URL = models.URLField()
+    created= models.DateTimeField(default=datetime.now())
+    last_edit = models.DateTimeField(default=datetime.now())
     def __str__(self):
         return self.title
-    class Meta: 
+    class Meta:
         app_label = 'Resume'
+
 class Technology(models.Model):
     title = models.CharField(max_length=255)
     description = models.TextField(max_length=255)
@@ -76,7 +79,7 @@ class Technology(models.Model):
     )
     def __str__(self):
         return self.title
-    class Meta: 
+    class Meta:
         app_label='Resume'
 class SkillCategory(models.Model):
     category_name = models.CharField(max_length=255)
