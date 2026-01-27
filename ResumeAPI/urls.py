@@ -17,6 +17,7 @@ urlpatterns = [
     path('project/', ProjectListView.as_view()),
     path('project/<int:pk>/', ProjectDetailsView.as_view()),
     path('home/',HomePageEntryListView.as_view()),
+    path('home/sample/', HomePageEntryPaginationView.as_view()),
     path('home/<int:pk>/', HomePageEntryDetailsView.as_view()),
     path('technology/', TechnologyListView.as_view()),
     path('technology/<int:pk>/', TechnologyDetailsView.as_view())

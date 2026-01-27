@@ -4,7 +4,7 @@ from .models import Award, AwardCategory, Education, Message, Project, HomePageE
 class AwardSerializer(serializers.ModelSerializer):
     category = AwardCategory()
     class Meta:
-        model = Award 
+        model = Award
         fields = '__all__'
 class AwardCategorySerializer(serializers.ModelSerializer):
     awards = AwardSerializer(read_only=True, many=True)
@@ -22,7 +22,7 @@ class WorkExperienceSerializer(serializers.ModelSerializer):
 class MessageSerializer(serializers.ModelSerializer):
     class Meta:
         model = Message
-        fields = '__all__' 
+        fields = '__all__'
 class SkillSerializer(serializers.ModelSerializer):
     category = SkillCategory()
     class Meta:
@@ -31,8 +31,8 @@ class SkillSerializer(serializers.ModelSerializer):
 class SkillCategorySerializer(serializers.ModelSerializer):
     skills = SkillSerializer(read_only=True, many=True)
     class Meta:
-        model = SkillCategory 
-        fields = '__all__'    
+        model = SkillCategory
+        fields = '__all__'
 class ProjectSerializer(serializers.ModelSerializer):
     class Meta:
         model = Project

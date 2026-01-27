@@ -68,7 +68,7 @@ class ProjectDetailsView(generics.RetrieveAPIView):
     queryset = Project.objects.all()
     serializer_class = ProjectSerializer
 class HomePageEntryPaginationView(generics.ListAPIView):
-    queryset = HomePageEntry.objects.all()
+    queryset = HomePageEntry.objects.all().order_by('last_edit')
     serializer_class = HomePageEntrySerializer
     pagination_class = SmallBlogPagePagination
 class HomePageEntryListView(generics.ListAPIView):

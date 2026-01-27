@@ -1,5 +1,6 @@
 from django.db import models
 from datetime import datetime
+from django.utils import timezone
 class AwardCategory(models.Model):
     title = models.CharField(max_length=100)
     year = models.IntegerField(default=datetime.now().year, null=True, blank=True)
@@ -62,8 +63,8 @@ class HomePageEntry(models.Model):
     title = models.CharField(max_length=255)
     description = models.TextField()
     URL = models.URLField()
-    created= models.DateTimeField(default=datetime.now())
-    last_edit = models.DateTimeField(default=datetime.now())
+    created = models.DateTimeField(default=timezone.now)
+    last_edit = models.DateTimeField(default=timezone.now)
     def __str__(self):
         return self.title
     class Meta:

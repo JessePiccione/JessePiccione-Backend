@@ -29,9 +29,9 @@ class ProjectAdmin(admin.ModelAdmin):
 admin.site.register(Project, ProjectAdmin)
 
 class HomePageEntryAdmin(admin.ModelAdmin):
-    list_display = ('id','title', 'description', 'URL')
-    search_fields = ('id', 'title', 'description', 'URL')
-    list_filter = ('title', 'description', 'URL')
+    list_display = ('id','title', 'description', 'URL', 'created', 'last_edit')
+    search_fields = ('id', 'title', 'description', 'URL', 'created', 'last_edit')
+    list_filter = ('title', 'description', 'URL', 'created', 'last_edit')
 admin.site.register(HomePageEntry, HomePageEntryAdmin)
 
 class TechnologyAdmin(admin.ModelAdmin):
