@@ -3,7 +3,6 @@ pyopenssl
 openai
 djangorestframework
 djoser
-mysqlclient
 django-cors-headers
 gunicorn
 uvicorn

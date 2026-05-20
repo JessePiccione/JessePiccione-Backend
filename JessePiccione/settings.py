@@ -9,12 +9,6 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = os.getenv('SECRET_KEY_VAR')
 OPENAI_API_KEY = os.getenv('OPENAI_API_KEY')
-DBENGINE=os.getenv('DATABASE_ENGINE')
-DBNAME=os.getenv('DATABASE_NAME')
-DBHOST=os.getenv('DATABASE_HOST')
-DBPORT=os.getenv('DATABASE_PORT')
-DBUSER=os.getenv('DATABASE_USERNAME')
-DBPASSWORD=os.getenv('DATABASE_PASSWORD')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 ALLOWED_HOSTS = ["*"]
@@ -104,24 +98,12 @@ TEMPLATES = [
 WSGI_APPLICATION = 'JessePiccione.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
-if DBENGINE == 'django.db.backends.sqlite3' or not DBENGINE:
-    DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.sqlite3',
-            'NAME': BASE_DIR / (DBNAME or 'db.sqlite3'),
-        }
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
     }
-else:
-    DATABASES = {
-        'default': {
-            'ENGINE': DBENGINE,
-            'NAME': DBNAME,
-            'HOST': DBHOST,
-            'PORT': DBPORT, 
-            'USER': DBUSER,
-            'PASSWORD': DBPASSWORD,
-        }
-    }
+}
 # Password validation
 # https://docs.djangoproject.com/en/5.0/ref/settings/#auth-password-validators
 AUTH_PASSWORD_VALIDATORS = [
@@ -158,17 +140,9 @@ REST_FRAMEWORK = {
         'rest_framework.authentication.TokenAuthentication',  
     ]
 }
-if DBENGINE == 'django.db.backends.sqlite3' or not DBENGINE:
-    CACHES = {
-        "default": {
-            "BACKEND": "django.core.cache.backends.locmem.LocMemCache",
-            "LOCATION": "unique-snowflake",
-        }
+CACHES = {
+    "default": {
+        "BACKEND": "django.core.cache.backends.locmem.LocMemCache",
+        "LOCATION": "unique-snowflake",
     }
-else:
-    CACHES = {
-        "default":{
-            "BACKEND":"django.core.cache.backends.db.DatabaseCache",
-            "LOCATION":"backend_mysql_cache",
-        }
-    }
+}

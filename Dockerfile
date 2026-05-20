@@ -8,8 +8,8 @@ ENV PYTHONUNBUFFERED=1
 RUN mkdir /JessePiccione
 WORKDIR /JessePiccione
 
-# Update the package list and install the MySQL development library
-RUN apt-get update && apt-get install -y default-libmysqlclient-dev build-essential
+# Update the package list and install build essentials
+RUN apt-get update && apt-get install -y build-essential
 
 # Ins
 # Copy the Pipfile and Pipfile.lock into the image
